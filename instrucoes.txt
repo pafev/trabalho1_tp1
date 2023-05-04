@@ -10,3 +10,9 @@ g++ *.cpp -o main
 ##comando para executar (após compilado):
 
 ./main
+
+## o que fazer depois de escrevermos o código:
+
+iremos pegar os arquivos, dar um ctrl c + ctrl v e passar para o code::blocks
+aí iremos em "build" no code::blocks, para ele compilar e criar uns arquivos
+referentes ao projeto e à estrutura de arquivos da ide/ferramenta

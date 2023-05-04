@@ -6,8 +6,8 @@
 using namespace std;
 
 int main() {
-    Data x;
-    x.setValor("sla");
+    Senha x;
+    x.setValor("1-A45&");
 
     cout << x.getValor() << endl;
     return 0;
