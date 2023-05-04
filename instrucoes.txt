@@ -1,0 +1,12 @@
+##comando para compilar:
+
+g++ *.cpp -o main
+
+- Explicação:
+    "g++" é o compilador
+    "*.cpp" é porque queremos compilar todos os arquivos .cpp
+    "-o main" é porque queremos renomear o executável para main (favor, sempre renomear para main)
+
+##comando para executar (após compilado):
+
+./main
