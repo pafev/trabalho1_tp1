@@ -1,5 +1,8 @@
 #include "dominios.hpp"
 
+#include <iostream>
+using namespace std;
+
 // void DominioASerCriado::validar(string valor) {
 //     if (verificacao) {
 //         throw invalid_argument("explique o erro");
@@ -12,8 +15,45 @@
 // };
 
 void Data::validar(string valor) {
-    if (valor == "") {
-        throw invalid_argument("argumento inválido");
+    if ((valor.size() != 11) ||
+        (valor[2] != '/' | valor[6] != '/')) {
+        throw invalid_argument("Formato inválido");
+    }
+    else {
+        int dia = stoi(valor.substr(0,2));
+        string mes = valor.substr(3,3);
+        int ano = stoi(valor.substr(7,4));
+
+        if (dia < 1 || dia > 31) {
+            throw invalid_argument("Dia inválido");
+        }
+        else if (mes != "JAN" & mes != "FEV" & mes != "MAR" &
+                 mes != "ABR" & mes != "MAI" & mes != "JUN" &
+                 mes != "JUL" & mes != "AGO" & mes != "SET" &
+                 mes != "OUT" & mes != "NOV" & mes != "DEZ") {
+            throw invalid_argument("Mês inválido");
+        }
+        else if (ano < 2000 || ano > 2999) {
+            throw invalid_argument("Ano inválido");
+        }
+        else if (mes == "FEV" && ano % 4 != 0 && dia > 28) {
+            throw invalid_argument("Data não existe");
+        }
+        else if (mes == "FEV" && dia > 29) {
+            throw invalid_argument("Data não existe");
+        }
+        else if (mes == "ABR" && dia > 30) {
+            throw invalid_argument("Data não existe");
+        }
+        else if (mes == "JUN" && dia > 30) {
+            throw invalid_argument("Data não existe");
+        }
+        else if (mes == "SET" && dia > 30) {
+            throw invalid_argument("Data não existe");
+        }
+        else if (mes == "NOV" && dia > 30) {
+            throw invalid_argument("Data não existe");
+        };
     };
 };
 
