@@ -15,4 +15,10 @@ int main() {
     cout << z.getValor() << endl;
 
     return 0;
+
+    Data y;
+    y.setValor("20/MAI/2004");
+
+    cout << y.getValor() << endl;
+    return 0;
 }
