@@ -173,8 +173,8 @@ void Matricula::validar(string valor) {         /*matricula aluna: 221030830*/
     
     int digito_verificador;
 
-    int divisao_módulo10 = aux_digito_verificador / 10;
-    if (divisao_módulo10 != 0){
+    int divisao_modulo10 = aux_digito_verificador / 10;
+    if (divisao_modulo10 != 0){
         digito_verificador = 10 - (aux_digito_verificador % 10);
     } else {
         digito_verificador = 0;
