@@ -93,3 +93,86 @@ void Senha::setValor(string valor) {
     validar(valor);
     this->valor = valor;
 };
+
+void Matricula::validar(string valor) {
+    if ((valor.size() != 7) ||
+        (valor.find_first_not_of("0123456789") != string::npos)) {
+        throw invalid_argument("Formato inválido");
+    }
+
+    int aux_digito_verificador = 0;
+
+    for (int i = 0; i < 6; i++) {
+        char caractere = valor[i];
+        if (i % 2 != 0 || i == 0){
+            aux_digito_verificador += i;
+        };
+        if (i % 2 == 0){
+            aux_digito_verificador += 2 * i;
+        };
+    };
+    
+    int digito_verificador;
+
+    int divisao_módulo10 = aux_digito_verificador / 10;
+    if (divisao_módulo10 != 0){
+        digito_verificador = 10 - (aux_digito_verificador % 10);
+    } else {
+        digito_verificador = 0;
+    };
+    
+     if (digito_verificador != valor[6]) {
+        throw invalid_argument("Matrícula inválida");
+    };
+};
+
+void Matricula::setValor(string valor) {
+    validar(valor);
+    this->valor = valor;
+};
+
+void Resultado::validar(string valor) {
+    if ((valor != "APROVADO") || 
+        (valor != "REPROVADO")) {
+        throw invalid_argument("Formato inválido");
+    };
+};
+
+void Resultado::setValor(string valor) {
+    validar(valor);
+    this->valor = valor;
+};
+
+void Texto::validar(string valor) {
+    if (valor.size() < 10) {
+        throw invalid_argument("Caracteres insuficientes (mínimo: 10)");
+    };
+    if (valor.size() > 20) {
+        throw invalid_argument("Caracteres excessivos (máximo: 20)");
+    };
+
+    for (int i = 0; i < valor.size(); i++) {
+        char caractere = valor[i];
+
+        if (!((caractere >= 'a' & caractere <= 'z') |
+              (caractere >= 'A' & caractere <= 'Z') |
+              (caractere >= '0' & caractere <= '9') |
+              caractere == '@' |
+              caractere == '#' |
+              caractere == '$' |
+              caractere == '%' |
+              caractere == '&' | 
+              caractere == ' ')) {
+            throw invalid_argument("Texto possui caractere inválido");
+        };
+
+        if (valor[i] == ' ' & valor[i-1] == ' '){
+            throw invalid_argument("Texto possui caractere inválido");
+        };
+    };
+};
+
+void Texto::setValor(string valor) {
+    validar(valor);
+    this->valor = valor;
+};
