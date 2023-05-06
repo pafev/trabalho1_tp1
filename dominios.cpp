@@ -93,3 +93,62 @@ void Senha::setValor(string valor) {
     validar(valor);
     this->valor = valor;
 };
+
+void Classe::validar(string valor) {
+    if (valor != "UNIDADE" && valor != "INTEGRACAO" &&
+        valor != "FUMACA" && valor != "SISTEMA" &&
+        valor != "REGRESSAO" && valor != "ACEITACAO") {
+        throw invalid_argument("Formato inválido");
+        };
+};
+
+void Classe::setValor(string valor) {
+    validar(valor);
+    this->valor = valor;
+};
+
+void Telefone::validar(string valor) {
+    if ( valor.size() < 7 || valor.size() > 15) {
+        throw invalid_argument("Tamanho inválido");
+    };
+    
+    for (int i = 0; i < valor.size(); i++) {
+        char caractere = valor[i];
+
+        if (!(caractere >= '0' & caractere <= '9')) {
+            throw invalid_argument("Telefone possui caractere inválido");
+        };
+    };
+};
+
+void Telefone::setValor(string valor) {
+    validar(valor);
+    this->valor = valor;
+};
+
+void Codigo::validar(string valor) {
+    if ( valor.size() != 6) {
+        throw invalid_argument("Tamanho inválido");
+    };
+    
+    for (int i = 0; i < 6; i++) {
+        char caractere = valor[i];
+
+        if (i < 3) {
+            if(!((caractere >= 'a' & caractere <= 'z') |
+              (caractere >= 'A' & caractere <= 'Z'))) {
+                throw invalid_argument("Codigo possui caractere inválido");
+            };
+        }
+        else {
+            if (!(caractere >= '0' & caractere <= '9')) {
+                throw invalid_argument("Telefone possui caractere inválido");
+            };
+        };
+    };
+};
+
+void Codigo::setValor(string valor) {
+    validar(valor);
+    this->valor = valor;
+};

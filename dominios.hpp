@@ -30,5 +30,25 @@ public:
     void setValor(string);
 };
 
+class Classe : public Dominio {
+private:
+    void validar(string);
+public:
+    void setValor(string);
+};
+
+class Telefone : public Dominio {
+private:
+    void validar(string);
+public:
+    void setValor(string);
+};
+
+class Codigo : public Dominio {
+private:
+    void validar(string);
+public:
+    void setValor(string);
+};
 
 #endif // DOMINIOS_HPP_INCLUDED
