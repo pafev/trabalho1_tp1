@@ -7,6 +7,23 @@ using namespace std;
 #include "dominios.hpp"
 #include "entidades.hpp"
 
+// class TesteDominio {
+// private:
+//     // const static string VALOR_INVALIDO;
+//     // const static string VALOR_VALIDO;
+//     Dominio *dominio;
+//     string estado;
+//     void setUp();
+//     void tearDown();
+//     void testarValorInvalido(string);
+//     void testarValorValido(string);
+// public:
+//     const string SUCESSO = "Sucesso!";
+//     const string FALHA = "Erro: ";
+//     string run(string, string);
+// };
+
+
 class TesteData {
 private:
     // const static string VALOR_INVALIDO;
