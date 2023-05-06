@@ -51,4 +51,25 @@ public:
     void setValor(string);
 };
 
+class Matricula : public Dominio {
+private:
+    void validar(string);
+public:
+    void setValor(string);
+};
+
+class Resultado : public Dominio {
+private:
+    void validar(string);
+public:
+    void setValor(string);
+};
+
+class Texto : public Dominio {
+private:
+    void validar(string);
+public:
+    void setValor(string);
+};
+
 #endif // DOMINIOS_HPP_INCLUDED
