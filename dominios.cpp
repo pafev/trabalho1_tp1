@@ -14,7 +14,7 @@ using namespace std;
 //     this->valor = valor;
 // };
 
-void Data::validar(string valor) {
+void Data::validar(string valor) {          /*matricula aluno: 211043351*/
     if ((valor.size() != 11) ||
         (valor[2] != '/' | valor[6] != '/')) {
         throw invalid_argument("Formato inválido");
@@ -62,7 +62,7 @@ void Data::setValor(string valor) {
     this->valor = valor;
 };
 
-void Senha::validar(string valor) {
+void Senha::validar(string valor) {         /*matricula aluno: 211043351*/
     if (valor.size() != 6) {
         throw invalid_argument("Senha não contém 6 caracteres");
     };
@@ -94,7 +94,7 @@ void Senha::setValor(string valor) {
     this->valor = valor;
 };
 
-void Classe::validar(string valor) {
+void Classe::validar(string valor) {        /*matricula aluna: 211038253*/
     if (valor != "UNIDADE" && valor != "INTEGRACAO" &&
         valor != "FUMACA" && valor != "SISTEMA" &&
         valor != "REGRESSAO" && valor != "ACEITACAO") {
@@ -107,7 +107,7 @@ void Classe::setValor(string valor) {
     this->valor = valor;
 };
 
-void Telefone::validar(string valor) {
+void Telefone::validar(string valor) {          /*matricula aluna: 211038253*/
     if ( valor.size() < 7 || valor.size() > 15) {
         throw invalid_argument("Tamanho inválido");
     };
@@ -126,7 +126,7 @@ void Telefone::setValor(string valor) {
     this->valor = valor;
 };
 
-void Codigo::validar(string valor) {
+void Codigo::validar(string valor) {        /*matricula aluna: 211038253*/
     if ( valor.size() != 6) {
         throw invalid_argument("Tamanho inválido");
     };
@@ -153,7 +153,7 @@ void Codigo::setValor(string valor) {
     this->valor = valor;
 };
 
-void Matricula::validar(string valor) {
+void Matricula::validar(string valor) {         /*matricula aluna: 221030830*/
     if ((valor.size() != 7) ||
         (valor.find_first_not_of("0123456789") != string::npos)) {
         throw invalid_argument("Formato inválido");
@@ -190,7 +190,7 @@ void Matricula::setValor(string valor) {
     this->valor = valor;
 };
 
-void Resultado::validar(string valor) {
+void Resultado::validar(string valor) {         /*matricula aluna: 221030830*/
     if ((valor != "APROVADO") || 
         (valor != "REPROVADO")) {
         throw invalid_argument("Formato inválido");
@@ -202,7 +202,7 @@ void Resultado::setValor(string valor) {
     this->valor = valor;
 };
 
-void Texto::validar(string valor) {
+void Texto::validar(string valor) {         /*matricula aluna: 221030830*/
     if (valor.size() < 10) {
         throw invalid_argument("Caracteres insuficientes (mínimo: 10)");
     };
