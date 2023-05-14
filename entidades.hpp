@@ -19,7 +19,7 @@
 //     return nomeAtributo;
 // }
 
-class Desenvolvedor {
+class Desenvolvedor {         /*matricula aluno: 211043351*/
 private:
     Matricula matricula;
     Texto nome;
@@ -68,7 +68,7 @@ inline Telefone Desenvolvedor::getTelefone() const {
     return telefone;
 };
 
-class Teste {
+class Teste {        /*matricula aluno: 211043351*/
 private:
     Codigo codigo;
     Texto nome;
@@ -106,7 +106,7 @@ inline Classe Teste::getClasse() const{
     return classe;
 };
 
-class CasoDeTeste {
+class CasoDeTeste {         /*matricula aluno: 211043351*/
 private:
     Codigo codigo;
     Texto nome;
