@@ -108,15 +108,21 @@ void Classe::setValor(string valor) {
 };
 
 void Telefone::validar(string valor) {          /*matricula aluna: 211038253*/
-    if ( valor.size() < 7 || valor.size() > 15) {
+    if ( valor.size() < 8 || valor.size() > 16) {
         throw invalid_argument("Tamanho inválido");
     };
     
     for (int i = 0; i < valor.size(); i++) {
         char caractere = valor[i];
 
-        if (!(caractere >= '0' & caractere <= '9')) {
+        if (i = 0) {
+            if (caractere != '+') {
+                throw invalid_argument("Telefone possui caractere inválido");
+            };
+        } else {
+            if (!(caractere >= '0' & caractere <= '9')) {
             throw invalid_argument("Telefone possui caractere inválido");
+            };
         };
     };
 };
