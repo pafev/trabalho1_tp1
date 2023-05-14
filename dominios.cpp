@@ -163,11 +163,16 @@ void Matricula::validar(string valor) {         /*matricula aluna: 221030830*/
 
     for (int i = 0; i < 6; i++) {
         char caractere = valor[i];
-        if (i % 2 == 0 || i == 0){
-            aux_digito_verificador += caractere;
-        };
-        if (i % 2 != 0){
-            aux_digito_verificador += 2 * caractere;
+        if (i % 2 == 0 || i == 0) {
+            aux_digito_verificador += valor[i];
+        }
+        else if (i % 2 != 0) {
+            int aux_aux_digito_verificador = 2 * valor[i];
+            if (aux_aux_digito_verificador > 9) {
+                aux_digito_verificador += 1 + (aux_aux_digito_verificador - 10);
+            } else {
+                aux_digito_verificador += aux_aux_digito_verificador;
+            }
         };
     };
     
@@ -191,7 +196,7 @@ void Matricula::setValor(string valor) {
 };
 
 void Resultado::validar(string valor) {         /*matricula aluna: 221030830*/
-    if ((valor != "APROVADO") && 
+    if ((valor != "APROVADO") || 
         (valor != "REPROVADO")) {
         throw invalid_argument("Formato inválido");
     };
