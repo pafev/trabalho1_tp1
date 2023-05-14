@@ -6,9 +6,12 @@
 using namespace std;
 
 class Dominio {         /*matricula aluno: 211043351*/
+private:
+    virtual void validar(string) = 0;
 protected:
     string valor;
 public:
+    virtual void setValor(string) = 0;
     string getValor() const;
 };
 
