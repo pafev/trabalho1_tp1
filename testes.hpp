@@ -4,137 +4,87 @@
 #include <string>
 #include <stdexcept>
 using namespace std;
+
 #include "dominios.hpp"
 #include "entidades.hpp"
 
 
 //Testes de Dominio
-class TesteData {
+class TesteDominio {
 private:
-    // const static string VALOR_INVALIDO;
-    // const static string VALOR_VALIDO;
-    Data *data;
-    string estado;
-    void setUp();
+    const string VALOR_INVALIDO;
+    const string VALOR_VALIDO;
+    virtual void setUp() = 0;
     void tearDown();
-    void testarValorInvalido(string);
-    void testarValorValido(string);
-public:
+    void testarValorInvalido();
+    void testarValorValido();
+protected:
+    Dominio *dominio;
+    string estado;
     const string SUCESSO = "Sucesso!";
     const string FALHA = "Erro: ";
-    string run(string, string);
+public:
+    string run();
 };
 
-class TesteSenha {
+inline void TesteDominio::tearDown() {
+    delete dominio;
+}
+
+class TesteData : public TesteDominio {
 private:
-    // const static string VALOR_INVALIDO;
-    // const static string VALOR_VALIDO;
-    Senha *senha;
-    string estado;
+    const string VALOR_INVALIDO = "";
+    const string VALOR_VALIDO = "";
     void setUp();
-    void tearDown();
-    void testarValorInvalido(string);
-    void testarValorValido(string);
-public:
-    const string SUCESSO = "Sucesso!";
-    const string FALHA = "Erro: ";
-    string run(string, string);
 };
 
-class TesteClasse {
+class TesteSenha : public TesteDominio {
 private:
-    // const static string VALOR_INVALIDO;
-    // const static string VALOR_VALIDO;
-    Classe *classe;
-    string estado;
+    const string VALOR_INVALIDO = "";
+    const string VALOR_VALIDO = "";
     void setUp();
-    void tearDown();
-    void testarValorInvalido(string);
-    void testarValorValido(string);
-public:
-    const string SUCESSO = "Sucesso!";
-    const string FALHA = "Erro: ";
-    string run(string, string);
 };
 
-class TesteTelefone {
+class TesteClasse : public TesteDominio {
 private:
-    // const static string VALOR_INVALIDO;
-    // const static string VALOR_VALIDO;
-    Telefone *telefone;
-    string estado;
+    const string VALOR_INVALIDO = "";
+    const string VALOR_VALIDO = "";
     void setUp();
-    void tearDown();
-    void testarValorInvalido(string);
-    void testarValorValido(string);
-public:
-    const string SUCESSO = "Sucesso!";
-    const string FALHA = "Erro: ";
-    string run(string, string);
-};
-  
-class TesteCodigo {
-private:
-    // const static string VALOR_INVALIDO;
-    // const static string VALOR_VALIDO;
-    Codigo *codigo;
-    string estado;
-    void setUp();
-    void tearDown();
-    void testarValorInvalido(string);
-    void testarValorValido(string);
-public:
-    const string SUCESSO = "Sucesso!";
-    const string FALHA = "Erro: ";
-    string run(string, string);
 };
 
-class TesteMatricula {
+class TesteTelefone : public TesteDominio {
 private:
-    // const static string VALOR_INVALIDO;
-    // const static string VALOR_VALIDO;
-    Matricula *matricula;
-    string estado;
+    const string VALOR_INVALIDO = "";
+    const string VALOR_VALIDO = "";
     void setUp();
-    void tearDown();
-    void testarValorInvalido(string);
-    void testarValorValido(string);
-public:
-    const string SUCESSO = "Sucesso!";
-    const string FALHA = "Erro: ";
-    string run(string, string);
 };
 
-class TesteResultado {
+class TesteCodigo : public TesteDominio {
 private:
-    // const static string VALOR_INVALIDO;
-    // const static string VALOR_VALIDO;
-    Resultado *resultado;
-    string estado;
+    const string VALOR_INVALIDO = "";
+    const string VALOR_VALIDO = "";
     void setUp();
-    void tearDown();
-    void testarValorInvalido(string);
-    void testarValorValido(string);
-public:
-    const string SUCESSO = "Sucesso!";
-    const string FALHA = "Erro: ";
-    string run(string, string);
 };
 
-class TesteTexto {
+class TesteMatricula : public TesteDominio {
 private:
-    // const static string VALOR_INVALIDO;
-    // const static string VALOR_VALIDO;
-    Texto *texto;
-    string estado;
+    const string VALOR_INVALIDO = "";
+    const string VALOR_VALIDO = "";
     void setUp();
-    void tearDown();
-    void testarValorInvalido(string);
-    void testarValorValido(string);
-public:
-    const string SUCESSO = "Sucesso!";
-    const string FALHA = "Erro: ";
-    string run(string, string);
+};
+
+class TesteResultado : public TesteDominio {
+private:
+    const string VALOR_INVALIDO = "";
+    const string VALOR_VALIDO = "";
+    void setUp();
+};
+
+class TesteTexto : public TesteDominio {
+private:
+    const string VALOR_INVALIDO = "";
+    const string VALOR_VALIDO = "";
+    void setUp();
 };
 
 
@@ -162,20 +112,6 @@ private:
     const string NOME_VALIDO   = "Pocahontas@2";
     const string CLASSE_VALIDA   = "FUMACA";  
     Teste *teste;                       
-    int estado;                             
-    void setUp();                           
-    void tearDown();                        
-    void testarCenarioSucesso();            
-public:
-    const static int SUCESSO =  0;
-    const static int FALHA   = -1;
-    int run(); 
-};
-
-class TesteCasoDeTeste {
-private:
-    const static int VALOR_VALIDO   = 20;   
-    CasoDeTeste *casodeteste;                       
     int estado;                             
     void setUp();                           
     void tearDown();                        

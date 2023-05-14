@@ -1,309 +1,77 @@
 #include "testes.hpp"
 
 
-//Testes de Dominio
-void TesteData::setUp() {
-    data = new Data();
-    estado = SUCESSO;
-};
-
-void TesteData::tearDown() {
-    delete data;
-};
-
-void TesteData::testarValorInvalido(string valor) {
-    try {
-        data->setValor(valor);
-        estado = FALHA + "Valor invalido setado";
-    }
-    catch(invalid_argument &excecao) {
-        if (data->getValor() == valor) {
-            estado = FALHA + excecao.what();
-        };
-    };
-};
-
-void TesteData::testarValorValido(string valor) {
-    try {
-        data->setValor(valor);
-        if (data->getValor() != valor) {
-            estado = FALHA + "Valor valido não foi setado";
-        };
-    }
-    catch(invalid_argument &excecao) {
-        estado = FALHA + excecao.what();
-    };
-};
-
-string TesteData::run(string valorInvalido, string valorValido) {
+// Testes de Domínios
+string TesteDominio::run() {
     setUp();
-    testarValorInvalido(valorInvalido);
-    testarValorValido(valorValido);
+    testarValorInvalido();
+    testarValorValido();
     tearDown();
     return estado;
 }
 
-void TesteSenha::setUp() {
-    senha = new Senha();
-    estado = SUCESSO;
-};
-
-void TesteSenha::tearDown() {
-    delete senha;
-};
-
-void TesteSenha::testarValorInvalido(string valor) {
+void TesteDominio::testarValorInvalido() {
     try {
-        senha->setValor(valor);
-        estado = FALHA + "Valor invalido setado";
+        dominio->setValor(VALOR_INVALIDO);
+        estado = FALHA + "Validação burlada";
     }
     catch(invalid_argument &excecao) {
-        if (senha->getValor() == valor) {
-            estado = FALHA + excecao.what();
+        if (dominio->getValor() == VALOR_INVALIDO) {
+            estado = FALHA + "Valor inválido setado, com exceção " + excecao.what();
         };
     };
 };
 
-void TesteSenha::testarValorValido(string valor) {
+void TesteDominio::testarValorValido() {
     try {
-        senha->setValor(valor);
-        if (senha->getValor() != valor) {
+        dominio->setValor(VALOR_VALIDO);
+        if (dominio->getValor() != VALOR_VALIDO) {
             estado = FALHA + "Valor valido não foi setado";
         };
     }
     catch(invalid_argument &excecao) {
-        estado = FALHA + excecao.what();
+        estado = FALHA + "Exceção não esperada - " + excecao.what();
     };
 };
 
-string TesteSenha::run(string valorInvalido, string valorValido) {
-    setUp();
-    testarValorInvalido(valorInvalido);
-    testarValorValido(valorValido);
-    tearDown();
-    return estado;
+void TesteData::setUp() {
+    dominio = new Data();
+    estado = SUCESSO;
+};
+
+void TesteSenha::setUp() {
+    dominio = new Data();
+    estado = SUCESSO;
 };
 
 void TesteClasse::setUp() {
-    classe = new Classe();
+    dominio = new Data();
     estado = SUCESSO;
-};
-void TesteClasse::tearDown() {
-    delete classe;
-};
-void TesteClasse::testarValorInvalido(string valor) {
-    try {
-        classe->setValor(valor);
-        estado = FALHA + "Valor invalido setado";
-    }
-    catch(invalid_argument &excecao) {
-        if (classe->getValor() == valor) {
-            estado = FALHA + excecao.what();
-        };
-    };
-};
-void TesteClasse::testarValorValido(string valor) {
-    try {
-        classe->setValor(valor);
-        if (classe->getValor() != valor) {
-            estado = FALHA + "Valor valido não foi setado";
-        };
-    }
-    catch(invalid_argument &excecao) {
-        estado = FALHA + excecao.what();
-    };
-};
-string TesteClasse::run(string valorInvalido, string valorValido) {
-    setUp();
-    testarValorInvalido(valorInvalido);
-    testarValorValido(valorValido);
-    tearDown();
-    return estado;
 };
 
 void TesteTelefone::setUp() {
-    telefone = new Telefone();
+    dominio = new Data();
     estado = SUCESSO;
 };
-void TesteTelefone::tearDown() {
-    delete telefone;
-};
-void TesteTelefone::testarValorInvalido(string valor) {
-    try {
-        telefone->setValor(valor);
-        estado = FALHA + "Valor invalido setado";
-    }
-    catch(invalid_argument &excecao) {
-        if (telefone->getValor() == valor) {
-            estado = FALHA + excecao.what();
-        };
-    };
-};
-void TesteTelefone::testarValorValido(string valor) {
-    try {
-        telefone->setValor(valor);
-        if (telefone->getValor() != valor) {
-            estado = FALHA + "Valor valido não foi setado";
-        };
-    }
-    catch(invalid_argument &excecao) {
-        estado = FALHA + excecao.what();
-    };
-};
-string TesteTelefone::run(string valorInvalido, string valorValido) {
-    setUp();
-    testarValorInvalido(valorInvalido);
-    testarValorValido(valorValido);
-    tearDown();
-    return estado;
+
+void TesteCodigo::setUp() {
+    dominio = new Data();
+    estado = SUCESSO;
 };
 
 void TesteMatricula::setUp() {
-    matricula = new Matricula();
+    dominio = new Data();
     estado = SUCESSO;
-};
-void TesteMatricula::tearDown() {
-    delete matricula;
-};
-void TesteMatricula::testarValorInvalido(string valor) {
-    try {
-        matricula->setValor(valor);
-        estado = FALHA + "Valor invalido setado";
-    }
-    catch(invalid_argument &excecao) {
-        if (matricula->getValor() == valor) {
-            estado = FALHA + excecao.what();
-        };
-    };
-};
-void TesteMatricula::testarValorValido(string valor) {
-    try {
-        matricula->setValor(valor);
-        if (matricula->getValor() != valor) {
-            estado = FALHA + "Valor valido não foi setado";
-        };
-    }
-    catch(invalid_argument &excecao) {
-        estado = FALHA + excecao.what();
-    };
-};
-string TesteMatricula::run(string valorInvalido, string valorValido) {
-    setUp();
-    testarValorInvalido(valorInvalido);
-    testarValorValido(valorValido);
-    tearDown();
-    return estado;
-};
-
-void TesteMatricula::setUp() {
-    matricula = new Matricula();
-    estado = SUCESSO;
-};
-void TesteMatricula::tearDown() {
-    delete matricula;
-};
-void TesteMatricula::testarValorInvalido(string valor) {
-    try {
-        matricula->setValor(valor);
-        estado = FALHA + "Valor invalido setado";
-    }
-    catch(invalid_argument &excecao) {
-        if (matricula->getValor() == valor) {
-            estado = FALHA + excecao.what();
-        };
-    };
-};
-void TesteMatricula::testarValorValido(string valor) {
-    try {
-        matricula->setValor(valor);
-        if (matricula->getValor() != valor) {
-            estado = FALHA + "Valor valido não foi setado";
-        };
-    }
-    catch(invalid_argument &excecao) {
-        estado = FALHA + excecao.what();
-    };
-};
-string TesteMatricula::run(string valorInvalido, string valorValido) {
-    setUp();
-    testarValorInvalido(valorInvalido);
-    testarValorValido(valorValido);
-    tearDown();
-    return estado;
 };
 
 void TesteResultado::setUp() {
-    resultado = new Resultado();
+    dominio = new Data();
     estado = SUCESSO;
-};
-void TesteResultado::tearDown() {
-    delete resultado;
-};
-void TesteResultado::testarValorInvalido(string valor) {
-    try {
-        resultado->setValor(valor);
-        estado = FALHA + "Valor invalido setado";
-    }
-    catch(invalid_argument &excecao) {
-        if (resultado->getValor() == valor) {
-            estado = FALHA + excecao.what();
-        };
-    };
-};
-void TesteResultado::testarValorValido(string valor) {
-    try {
-        resultado->setValor(valor);
-        if (resultado->getValor() != valor) {
-            estado = FALHA + "Valor valido não foi setado";
-        };
-    }
-    catch(invalid_argument &excecao) {
-        estado = FALHA + excecao.what();
-    };
-};
-string TesteResultado::run(string valorInvalido, string valorValido) {
-    setUp();
-    testarValorInvalido(valorInvalido);
-    testarValorValido(valorValido);
-    tearDown();
-    return estado;
 };
 
 void TesteTexto::setUp() {
-    texto = new Texto();
+    dominio = new Data();
     estado = SUCESSO;
-};
-void TesteTexto::tearDown() {
-    delete texto;
-};
-void TesteTexto::testarValorInvalido(string valor) {
-    try {
-        texto->setValor(valor);
-        estado = FALHA + "Valor invalido setado";
-    }
-    catch(invalid_argument &excecao) {
-        if (texto->getValor() == valor) {
-            estado = FALHA + excecao.what();
-        };
-    };
-};
-void TesteTexto::testarValorValido(string valor) {
-    try {
-        texto->setValor(valor);
-        if (texto->getValor() != valor) {
-            estado = FALHA + "Valor valido não foi setado";
-        };
-    }
-    catch(invalid_argument &excecao) {
-        estado = FALHA + excecao.what();
-    };
-};
-string TesteTexto::run(string valorInvalido, string valorValido) {
-    setUp();
-    testarValorInvalido(valorInvalido);
-    testarValorValido(valorValido);
-    tearDown();
-    return estado;
 };
 
 
