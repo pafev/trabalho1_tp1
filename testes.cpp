@@ -76,6 +76,13 @@ void TesteTexto::setUp() {
 
 
 // Testes de Entidade
+string TesteEntidade::run(){
+    setUp();
+    testarCenarioSucesso();
+    tearDown();
+    return estado;
+}
+
 void TesteDesenvolvedor::setUp(){
     desenvolvedor = new Desenvolvedor();
     estado = SUCESSO;
@@ -111,13 +118,6 @@ void TesteDesenvolvedor::testarCenarioSucesso(){
         estado = FALHA;
 }
 
-int TesteDesenvolvedor::run(){
-    setUp();
-    testarCenarioSucesso();
-    tearDown();
-    return estado;
-}
-
 
 void TesteTeste::setUp(){
     teste = new Teste();
@@ -146,13 +146,6 @@ void TesteTeste::testarCenarioSucesso(){
     teste->setClasse(classe);
     if(teste->getClasse().getValor() != CLASSE_VALIDA)
         estado = FALHA;
-}
-
-int TesteTeste::run(){
-    setUp();
-    testarCenarioSucesso();
-    tearDown();
-    return estado;
 }
 
 
@@ -201,11 +194,4 @@ void TesteCasoDeTeste::testarCenarioSucesso(){
     casodeteste->setResultado(resultado);
     if(casodeteste->getResultado().getValor() != RESULTADO_VALIDO)
         estado = FALHA;
-}
-
-int TesteCasoDeTeste::run(){
-    setUp();
-    testarCenarioSucesso();
-    tearDown();
-    return estado;
 }

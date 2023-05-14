@@ -6,9 +6,14 @@
 using namespace std;
 
 int main() {
-    Data x;
-    x.setValor("30/FEV/2004");
-    cout << x.getValor() << endl;
+    TesteDesenvolvedor testeDesenvolvedor;
+    cout << "Testando desenvolvedor: " << testeDesenvolvedor.run() << endl;
+
+    TesteTeste teste;
+    cout << "Testando teste: " << teste.run() << endl;
+
+    TesteCasoDeTeste testeCasoDeTeste;
+    cout << "Testando caso de teste: " << testeCasoDeTeste.run() << endl;
 
     return 0;
 }

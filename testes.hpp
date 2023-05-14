@@ -33,96 +33,99 @@ inline void TesteDominio::tearDown() {
 
 class TesteData : public TesteDominio {
 private:
-    const string VALOR_INVALIDO = "";
-    const string VALOR_VALIDO = "";
+    const string VALOR_INVALIDO = "32/DEZ/2023";
+    const string VALOR_VALIDO = "29/FEV/2004";
     void setUp();
 };
 
 class TesteSenha : public TesteDominio {
 private:
-    const string VALOR_INVALIDO = "";
-    const string VALOR_VALIDO = "";
+    const string VALOR_INVALIDO = "senhaa";
+    const string VALOR_VALIDO = "123@Ab";
     void setUp();
 };
 
 class TesteClasse : public TesteDominio {
 private:
-    const string VALOR_INVALIDO = "";
-    const string VALOR_VALIDO = "";
+    const string VALOR_INVALIDO = "ALEATORIO";
+    const string VALOR_VALIDO = "SISTEMA";
     void setUp();
 };
 
 class TesteTelefone : public TesteDominio {
 private:
-    const string VALOR_INVALIDO = "";
-    const string VALOR_VALIDO = "";
+    const string VALOR_INVALIDO = "61999020080";
+    const string VALOR_VALIDO = "+61982155097";
     void setUp();
 };
 
 class TesteCodigo : public TesteDominio {
 private:
-    const string VALOR_INVALIDO = "";
-    const string VALOR_VALIDO = "";
+    const string VALOR_INVALIDO = "ABCDE1";
+    const string VALOR_VALIDO = "ABC123";
     void setUp();
 };
 
 class TesteMatricula : public TesteDominio {
 private:
-    const string VALOR_INVALIDO = "";
-    const string VALOR_VALIDO = "";
+    const string VALOR_INVALIDO = "1208340";
+    const string VALOR_VALIDO = "2615334";
     void setUp();
 };
 
 class TesteResultado : public TesteDominio {
 private:
-    const string VALOR_INVALIDO = "";
-    const string VALOR_VALIDO = "";
+    const string VALOR_INVALIDO = "RECUSADO";
+    const string VALOR_VALIDO = "REPROVADO";
     void setUp();
 };
 
 class TesteTexto : public TesteDominio {
 private:
-    const string VALOR_INVALIDO = "";
-    const string VALOR_VALIDO = "";
+    const string VALOR_INVALIDO = "texto";
+    const string VALOR_VALIDO = "aqui esta um exemplo";
     void setUp();
 };
 
 
 //Testes de Entidade
-class TesteDesenvolvedor {
+class TesteEntidade {
+private:
+    virtual void setUp() = 0;
+    virtual void tearDown() = 0;
+    virtual void testarCenarioSucesso() = 0;
+protected:
+    const string SUCESSO = "Sucesso!";
+    const string FALHA = "Erro";
+    string estado;
+public:
+    string run();
+};
+
+class TesteDesenvolvedor : public TesteEntidade {
 private:
     const string MATRICULA_VALIDA   = "2615334"; 
     const string NOME_VALIDO   = "Pocahontas2@";  
     const string SENHA_VALIDA   = "123@Ab";
     const string TELEFONE_VALIDO   = "+61982155097";
     Desenvolvedor *desenvolvedor;                       
-    int estado;                             
-    void setUp();                           
-    void tearDown();                        
-    void testarCenarioSucesso();            
-public:
-    const int SUCESSO =  0;
-    const int FALHA   = -1;
-    int run(); 
+    void setUp();                        
+    void tearDown();            
+    void testarCenarioSucesso();
 };
 
-class TesteTeste {
+class TesteTeste : public TesteEntidade {
 private:
     const string CODIGO_VALIDO   = "AbC123";
     const string NOME_VALIDO   = "Pocahontas@2";
     const string CLASSE_VALIDA   = "FUMACA";  
     Teste *teste;                       
-    int estado;                             
     void setUp();                           
     void tearDown();                        
     void testarCenarioSucesso();            
-public:
-    const static int SUCESSO =  0;
-    const static int FALHA   = -1;
-    int run(); 
 };
 
-class TesteCasoDeTeste {
+class TesteCasoDeTeste : public TesteEntidade {
 private:
     const string CODIGO_VALIDO   = "AbC123";
     const string NOME_VALIDO   = "Pocahontas@2";
@@ -131,14 +134,9 @@ private:
     const string RESPOSTA_VALIDA   = "Sim esta tudo certo";
     const string RESULTADO_VALIDO   = "APROVADO";
     CasoDeTeste *casodeteste;
-    int estado;
     void setUp();
     void tearDown();
     void testarCenarioSucesso();
-public:
-    const static int SUCESSO =  0;
-    const static int FALHA   = -1;
-    int run();
 };
 
 #endif // TESTES_HPP_INCLUDED
