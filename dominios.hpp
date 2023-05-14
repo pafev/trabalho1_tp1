@@ -5,7 +5,7 @@
 #include <stdexcept>
 using namespace std;
 
-class Dominio {
+class Dominio {         /*matricula aluno: 211043351*/
 protected:
     string valor;
 public:
@@ -16,56 +16,56 @@ inline string Dominio::getValor() const {
     return valor;
 };
 
-class Data : public Dominio {
+class Data : public Dominio {        /*matricula aluno: 211043351*/
 private:
     void validar(string);
 public:
     void setValor(string);
 };
 
-class Senha : public Dominio {
+class Senha : public Dominio {          /*matricula aluno: 211043351*/
 private:
     void validar(string);
 public:
     void setValor(string);
 };
 
-class Classe : public Dominio {
+class Classe : public Dominio {         /*matricula aluna: 211038253*/
 private:
     void validar(string);
 public:
     void setValor(string);
 };
 
-class Telefone : public Dominio {
+class Telefone : public Dominio {        /*matricula aluna: 211038253*/
 private:
     void validar(string);
 public:
     void setValor(string);
 };
 
-class Codigo : public Dominio {
+class Codigo : public Dominio {         /*matricula aluna: 211038253*/
 private:
     void validar(string);
 public:
     void setValor(string);
 };
 
-class Matricula : public Dominio {
+class Matricula : public Dominio {          /*matricula aluna: 221030830*/
 private:
     void validar(string);
 public:
     void setValor(string);
 };
 
-class Resultado : public Dominio {
+class Resultado : public Dominio {          /*matricula aluna: 221030830*/
 private:
     void validar(string);
 public:
     void setValor(string);
 };
 
-class Texto : public Dominio {
+class Texto : public Dominio {          /*matricula aluna: 221030830*/
 private:
     void validar(string);
 public:
