@@ -157,12 +157,12 @@ void Matricula::validar(string valor) {         /*matricula aluna: 221030830*/
     int aux_digito_verificador = 0;
 
     for (int i = 0; i < 6; i++) {
-        char caractere = valor[i];
-        if (i % 2 == 0 || i == 0) {
-            aux_digito_verificador += valor[i];
+        int num = (valor[i] - '0');
+        if (i % 2 == 0) {
+            aux_digito_verificador += num;
         }
         else if (i % 2 != 0) {
-            int aux_aux_digito_verificador = 2 * valor[i];
+            int aux_aux_digito_verificador = 2 * num;
             if (aux_aux_digito_verificador > 9) {
                 aux_digito_verificador += 1 + (aux_aux_digito_verificador - 10);
             } else {
@@ -180,7 +180,7 @@ void Matricula::validar(string valor) {         /*matricula aluna: 221030830*/
         digito_verificador = 0;
     };
     
-     if (digito_verificador != valor[6]) {
+    if (digito_verificador != (valor[6] - '0')) {
         throw invalid_argument("Matrícula inválida");
     };
 };
