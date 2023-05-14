@@ -3,22 +3,6 @@
 
 #include "dominios.hpp"
 
-// class Entidade {
-// private:
-//     Dominio nomeAtributo;
-// public:
-//     void setNomeAtributo(const Dominio&);
-//     Dominio getNomeAtributo() const;
-// };
-
-// inline void Entidade::setNomeAtributo(const Dominio &nomeAtributo){
-//     this->nomeAtributo = nomeAtributo;
-// }
-
-// inline Dominio Entidade::getNomeAtributo() const {
-//     return nomeAtributo;
-// }
-
 class Desenvolvedor {         /*matricula aluno: 211043351*/
 private:
     Matricula matricula;

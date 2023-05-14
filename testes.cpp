@@ -2,7 +2,7 @@
 
 
 // Testes de Domínios
-string TesteDominio::run() {
+string TesteDominio::run() {         /*matricula aluno: 211043351*/
     setUp();
     testarValorInvalido();
     testarValorValido();
@@ -15,7 +15,7 @@ void TesteData::setUp() {
     estado = SUCESSO;
 };
 
-void TesteData::testarValorInvalido() {
+void TesteData::testarValorInvalido() {        /*matricula aluno: 211043351*/
     try {
         data->setValor(VALOR_INVALIDO);
         estado = FALHA + "Validação burlada";
@@ -27,7 +27,7 @@ void TesteData::testarValorInvalido() {
     };
 };
 
-void TesteData::testarValorValido() {
+void TesteData::testarValorValido() {        /*matricula aluno: 211043351*/
     try {
         data->setValor(VALOR_VALIDO);
         if (data->getValor() != VALOR_VALIDO) {
@@ -39,12 +39,12 @@ void TesteData::testarValorValido() {
     };
 };
 
-void TesteSenha::setUp() {
+void TesteSenha::setUp() {        /*matricula aluna: 211038253*/
     senha = new Senha();
     estado = SUCESSO;
 };
 
-void TesteSenha::testarValorInvalido() {
+void TesteSenha::testarValorInvalido() {       /*matricula aluna: 211038253*/
     try {
         senha->setValor(VALOR_INVALIDO);
         estado = FALHA + "Validação burlada";
@@ -56,7 +56,7 @@ void TesteSenha::testarValorInvalido() {
     };
 };
 
-void TesteSenha::testarValorValido() {
+void TesteSenha::testarValorValido() {       /*matricula aluna: 211038253*/
     try {
         senha->setValor(VALOR_VALIDO);
         if (senha->getValor() != VALOR_VALIDO) {
@@ -68,12 +68,12 @@ void TesteSenha::testarValorValido() {
     };
 };
 
-void TesteClasse::setUp() {
+void TesteClasse::setUp() {          /*matricula aluna: 211038253*/
     classe = new Classe();
     estado = SUCESSO;
 };
 
-void TesteClasse::testarValorInvalido() {
+void TesteClasse::testarValorInvalido() {      /*matricula aluna: 211038253*/
     try {
         classe->setValor(VALOR_INVALIDO);
         estado = FALHA + "Validação burlada";
@@ -85,7 +85,7 @@ void TesteClasse::testarValorInvalido() {
     };
 };
 
-void TesteClasse::testarValorValido() {
+void TesteClasse::testarValorValido() {       /*matricula aluna: 211038253*/
     try {
         classe->setValor(VALOR_VALIDO);
         if (classe->getValor() != VALOR_VALIDO) {
@@ -97,12 +97,12 @@ void TesteClasse::testarValorValido() {
     };
 };
 
-void TesteTelefone::setUp() {
+void TesteTelefone::setUp() {             /*matricula aluna: 211038253*/
     telefone = new Telefone();
     estado = SUCESSO;
 };
 
-void TesteTelefone::testarValorInvalido() {
+void TesteTelefone::testarValorInvalido() {       /*matricula aluna: 211038253*/
     try {
         telefone->setValor(VALOR_INVALIDO);
         estado = FALHA + "Validação burlada";
@@ -114,7 +114,7 @@ void TesteTelefone::testarValorInvalido() {
     };
 };
 
-void TesteTelefone::testarValorValido() {
+void TesteTelefone::testarValorValido() {        /*matricula aluna: 211038253*/
     try {
         telefone->setValor(VALOR_VALIDO);
         if (telefone->getValor() != VALOR_VALIDO) {
@@ -126,12 +126,12 @@ void TesteTelefone::testarValorValido() {
     };
 };
 
-void TesteCodigo::setUp() {
+void TesteCodigo::setUp() {        /*matricula aluna: 211038253*/
     codigo = new Codigo();
     estado = SUCESSO;
 };
 
-void TesteCodigo::testarValorInvalido() {
+void TesteCodigo::testarValorInvalido() {         /*matricula aluna: 211038253*/
     try {
         codigo->setValor(VALOR_INVALIDO);
         estado = FALHA + "Validação burlada";
@@ -143,7 +143,7 @@ void TesteCodigo::testarValorInvalido() {
     };
 };
 
-void TesteCodigo::testarValorValido() {
+void TesteCodigo::testarValorValido() {          /*matricula aluna: 211038253*/
     try {
         codigo->setValor(VALOR_VALIDO);
         if (codigo->getValor() != VALOR_VALIDO) {
@@ -155,12 +155,12 @@ void TesteCodigo::testarValorValido() {
     };
 };
 
-void TesteMatricula::setUp() {
+void TesteMatricula::setUp() {        /*matricula aluna: 211038253*/
     matricula = new Matricula();
     estado = SUCESSO;
 };
 
-void TesteMatricula::testarValorInvalido() {
+void TesteMatricula::testarValorInvalido() {      /*matricula aluna: 211038253*/
     try {
         matricula->setValor(VALOR_INVALIDO);
         estado = FALHA + "Validação burlada";
@@ -172,7 +172,7 @@ void TesteMatricula::testarValorInvalido() {
     };
 };
 
-void TesteMatricula::testarValorValido() {
+void TesteMatricula::testarValorValido() {       /*matricula aluna: 211038253*/
     try {
         matricula->setValor(VALOR_VALIDO);
         if (matricula->getValor() != VALOR_VALIDO) {
@@ -184,12 +184,12 @@ void TesteMatricula::testarValorValido() {
     };
 };
 
-void TesteResultado::setUp() {
+void TesteResultado::setUp() {          /*matricula aluna: 211038253*/
     resultado = new Resultado();
     estado = SUCESSO;
 };
 
-void TesteResultado::testarValorInvalido() {
+void TesteResultado::testarValorInvalido() {       /*matricula aluna: 211038253*/
     try {
         resultado->setValor(VALOR_INVALIDO);
         estado = FALHA + "Validação burlada";
@@ -201,7 +201,7 @@ void TesteResultado::testarValorInvalido() {
     };
 };
 
-void TesteResultado::testarValorValido() {
+void TesteResultado::testarValorValido() {      /*matricula aluna: 211038253*/
     try {
         resultado->setValor(VALOR_VALIDO);
         if (resultado->getValor() != VALOR_VALIDO) {
@@ -213,12 +213,12 @@ void TesteResultado::testarValorValido() {
     };
 };
 
-void TesteTexto::setUp() {
+void TesteTexto::setUp() {             /*matricula aluna: 211038253*/
     texto = new Texto();
     estado = SUCESSO;
 };
 
-void TesteTexto::testarValorInvalido() {
+void TesteTexto::testarValorInvalido() {     /*matricula aluna: 211038253*/
     try {
         texto->setValor(VALOR_INVALIDO);
         estado = FALHA + "Validação burlada";
@@ -230,7 +230,7 @@ void TesteTexto::testarValorInvalido() {
     };
 };
 
-void TesteTexto::testarValorValido() {
+void TesteTexto::testarValorValido() {     /*matricula aluna: 211038253*/
     try {
         texto->setValor(VALOR_VALIDO);
         if (texto->getValor() != VALOR_VALIDO) {
@@ -244,23 +244,23 @@ void TesteTexto::testarValorValido() {
 
 
 // Testes de Entidade
-string TesteEntidade::run(){
+string TesteEntidade::run(){           /*matricula aluna: 221030830*/
     setUp();
     testarCenarioSucesso();
     tearDown();
     return estado;
 }
 
-void TesteDesenvolvedor::setUp(){
+void TesteDesenvolvedor::setUp(){           /*matricula aluna: 221030830*/
     desenvolvedor = new Desenvolvedor();
     estado = SUCESSO;
 }
 
-void TesteDesenvolvedor::tearDown(){
+void TesteDesenvolvedor::tearDown(){       /*matricula aluna: 221030830*/
     delete desenvolvedor;
 }
 
-void TesteDesenvolvedor::testarCenarioSucesso(){
+void TesteDesenvolvedor::testarCenarioSucesso(){      /*matricula aluna: 221030830*/
     Matricula matricula;
     matricula.setValor(MATRICULA_VALIDA);
     desenvolvedor->setMatricula(matricula);
@@ -287,16 +287,16 @@ void TesteDesenvolvedor::testarCenarioSucesso(){
 }
 
 
-void TesteTeste::setUp(){
+void TesteTeste::setUp(){            /*matricula aluna: 221030830*/
     teste = new Teste();
     estado = SUCESSO;
 }
 
-void TesteTeste::tearDown(){
+void TesteTeste::tearDown(){        /*matricula aluna: 221030830*/
     delete teste;
 }
 
-void TesteTeste::testarCenarioSucesso(){
+void TesteTeste::testarCenarioSucesso(){        /*matricula aluna: 221030830*/
     Codigo codigo;
     codigo.setValor(CODIGO_VALIDO);
     teste->setCodigo(codigo);
@@ -317,16 +317,16 @@ void TesteTeste::testarCenarioSucesso(){
 }
 
 
-void TesteCasoDeTeste::setUp(){
+void TesteCasoDeTeste::setUp(){          /*matricula aluna: 221030830*/
     casodeteste = new CasoDeTeste();
     estado = SUCESSO;
 }
 
-void TesteCasoDeTeste::tearDown(){
+void TesteCasoDeTeste::tearDown(){          /*matricula aluna: 221030830*/
     delete casodeteste;
 }
 
-void TesteCasoDeTeste::testarCenarioSucesso(){
+void TesteCasoDeTeste::testarCenarioSucesso(){        /*matricula aluna: 221030830*/
     Codigo codigo;
     codigo.setValor(CODIGO_VALIDO);
     casodeteste->setCodigo(codigo);

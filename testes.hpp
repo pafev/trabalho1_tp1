@@ -10,7 +10,7 @@ using namespace std;
 
 
 //Testes de Dominio
-class TesteDominio {
+class TesteDominio {         /*matricula aluno: 211043351*/
 private:
     virtual void setUp() = 0;
     virtual void tearDown() = 0;
@@ -24,7 +24,7 @@ public:
     string run();
 };
 
-class TesteData : public TesteDominio {
+class TesteData : public TesteDominio {        /*matricula aluno: 211043351*/
 private:
     Data *data;
     const string VALOR_VALIDO = "29/FEV/2004";
@@ -39,7 +39,7 @@ inline void TesteData::tearDown() {
     delete data;
 }
 
-class TesteSenha : public TesteDominio {
+class TesteSenha : public TesteDominio {           /*matricula aluna: 211038253*/
 private:
     Senha *senha;
     const string VALOR_VALIDO = "123@Ab";
@@ -54,7 +54,7 @@ inline void TesteSenha::tearDown() {
     delete senha;
 }
 
-class TesteClasse : public TesteDominio {
+class TesteClasse : public TesteDominio {            /*matricula aluna: 211038253*/
 private:
     Classe *classe;
     const string VALOR_INVALIDO = "ALEATORIO";
@@ -69,7 +69,7 @@ inline void TesteClasse::tearDown() {
     delete classe;
 }
 
-class TesteTelefone : public TesteDominio {
+class TesteTelefone : public TesteDominio {          /*matricula aluna: 211038253*/
 private:
     Telefone *telefone;
     const string VALOR_INVALIDO = "61999020080";
@@ -84,7 +84,7 @@ inline void TesteTelefone::tearDown() {
     delete telefone;
 }
 
-class TesteCodigo : public TesteDominio {
+class TesteCodigo : public TesteDominio {         /*matricula aluna: 211038253*/
 private:
     Codigo *codigo;
     const string VALOR_INVALIDO = "ABCDE1";
@@ -99,7 +99,7 @@ inline void TesteCodigo::tearDown() {
     delete codigo;
 }
 
-class TesteMatricula : public TesteDominio {
+class TesteMatricula : public TesteDominio {        /*matricula aluna: 211038253*/
 private:
     Matricula *matricula;
     const string VALOR_INVALIDO = "1208340";
@@ -114,7 +114,7 @@ inline void TesteMatricula::tearDown() {
     delete matricula;
 }
 
-class TesteResultado : public TesteDominio {
+class TesteResultado : public TesteDominio {        /*matricula aluna: 211038253*/
 private:
     Resultado *resultado;
     const string VALOR_INVALIDO = "RECUSADO";
@@ -129,7 +129,7 @@ inline void TesteResultado::tearDown() {
     delete resultado;
 }
 
-class TesteTexto : public TesteDominio {
+class TesteTexto : public TesteDominio {        /*matricula aluna: 211038253*/
 private:
     Texto *texto;
     const string VALOR_INVALIDO = "texto";
@@ -147,7 +147,7 @@ inline void TesteTexto::tearDown() {
 
 
 //Testes de Entidade
-class TesteEntidade {
+class TesteEntidade {             /*matricula aluno: 211043351*/
 private:
     virtual void setUp() = 0;
     virtual void tearDown() = 0;
@@ -160,7 +160,7 @@ public:
     string run();
 };
 
-class TesteDesenvolvedor : public TesteEntidade {
+class TesteDesenvolvedor : public TesteEntidade {        /*matricula aluna: 221030830*/
 private:
     const string MATRICULA_VALIDA   = "2615334"; 
     const string NOME_VALIDO   = "Pocahontas2@";  
@@ -172,7 +172,7 @@ private:
     void testarCenarioSucesso();
 };
 
-class TesteTeste : public TesteEntidade {
+class TesteTeste : public TesteEntidade {          /*matricula aluna: 221030830*/
 private:
     const string CODIGO_VALIDO   = "AbC123";
     const string NOME_VALIDO   = "Pocahontas@2";
@@ -183,7 +183,7 @@ private:
     void testarCenarioSucesso();            
 };
 
-class TesteCasoDeTeste : public TesteEntidade {
+class TesteCasoDeTeste : public TesteEntidade {        /*matricula aluna: 221030830*/
 private:
     const string CODIGO_VALIDO   = "AbC123";
     const string NOME_VALIDO   = "Pocahontas@2";
