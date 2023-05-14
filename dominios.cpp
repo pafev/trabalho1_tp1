@@ -117,7 +117,7 @@ void Telefone::validar(string valor) {          /*matricula aluna: 211038253*/
 
         if (i = 0) {
             if (caractere != '+') {
-                throw invalid_argument("Telefone possui caractere inválido");
+                throw invalid_argument("Telefone inválido");
             };
         } else {
             if (!(caractere >= '0' & caractere <= '9')) {
