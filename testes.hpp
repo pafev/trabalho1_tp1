@@ -12,80 +12,138 @@ using namespace std;
 //Testes de Dominio
 class TesteDominio {
 private:
-    const string VALOR_INVALIDO;
-    const string VALOR_VALIDO;
     virtual void setUp() = 0;
-    void tearDown();
-    void testarValorInvalido();
-    void testarValorValido();
+    virtual void tearDown() = 0;
+    virtual void testarValorInvalido() = 0;
+    virtual void testarValorValido() = 0;
 protected:
-    Dominio *dominio;
-    string estado;
     const string SUCESSO = "Sucesso!";
     const string FALHA = "Erro: ";
+    string estado;
 public:
     string run();
 };
 
-inline void TesteDominio::tearDown() {
-    delete dominio;
-}
-
 class TesteData : public TesteDominio {
 private:
-    const string VALOR_INVALIDO = "32/DEZ/2023";
+    Data *data;
     const string VALOR_VALIDO = "29/FEV/2004";
+    const string VALOR_INVALIDO = "32/DEZ/2023";
     void setUp();
+    void testarValorInvalido();
+    void testarValorValido();
+    void tearDown();
 };
+
+inline void TesteData::tearDown() {
+    delete data;
+}
 
 class TesteSenha : public TesteDominio {
 private:
-    const string VALOR_INVALIDO = "senhaa";
+    Senha *senha;
     const string VALOR_VALIDO = "123@Ab";
+    const string VALOR_INVALIDO = "senhaa";
     void setUp();
+    void testarValorInvalido();
+    void testarValorValido();
+    void tearDown();
 };
+
+inline void TesteSenha::tearDown() {
+    delete senha;
+}
 
 class TesteClasse : public TesteDominio {
 private:
+    Classe *classe;
     const string VALOR_INVALIDO = "ALEATORIO";
     const string VALOR_VALIDO = "SISTEMA";
     void setUp();
+    void testarValorInvalido();
+    void testarValorValido();
+    void tearDown();
 };
+
+inline void TesteClasse::tearDown() {
+    delete classe;
+}
 
 class TesteTelefone : public TesteDominio {
 private:
+    Telefone *telefone;
     const string VALOR_INVALIDO = "61999020080";
     const string VALOR_VALIDO = "+61982155097";
     void setUp();
+    void testarValorInvalido();
+    void testarValorValido();
+    void tearDown();
 };
+
+inline void TesteTelefone::tearDown() {
+    delete telefone;
+}
 
 class TesteCodigo : public TesteDominio {
 private:
+    Codigo *codigo;
     const string VALOR_INVALIDO = "ABCDE1";
     const string VALOR_VALIDO = "ABC123";
     void setUp();
+    void testarValorInvalido();
+    void testarValorValido();
+    void tearDown();
 };
+
+inline void TesteCodigo::tearDown() {
+    delete codigo;
+}
 
 class TesteMatricula : public TesteDominio {
 private:
+    Matricula *matricula;
     const string VALOR_INVALIDO = "1208340";
     const string VALOR_VALIDO = "2615334";
     void setUp();
+    void testarValorInvalido();
+    void testarValorValido();
+    void tearDown();
 };
+
+inline void TesteMatricula::tearDown() {
+    delete matricula;
+}
 
 class TesteResultado : public TesteDominio {
 private:
+    Resultado *resultado;
     const string VALOR_INVALIDO = "RECUSADO";
     const string VALOR_VALIDO = "REPROVADO";
     void setUp();
+    void testarValorInvalido();
+    void testarValorValido();
+    void tearDown();
 };
+
+inline void TesteResultado::tearDown() {
+    delete resultado;
+}
 
 class TesteTexto : public TesteDominio {
 private:
+    Texto *texto;
     const string VALOR_INVALIDO = "texto";
     const string VALOR_VALIDO = "aqui esta um exemplo";
     void setUp();
+    void testarValorInvalido();
+    void testarValorValido();
+    void tearDown();
 };
+
+inline void TesteTexto::tearDown() {
+    delete texto;
+}
+
 
 
 //Testes de Entidade

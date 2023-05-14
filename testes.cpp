@@ -10,68 +10,236 @@ string TesteDominio::run() {
     return estado;
 }
 
-void TesteDominio::testarValorInvalido() {
+void TesteData::setUp() {
+    data = new Data();
+    estado = SUCESSO;
+};
+
+void TesteData::testarValorInvalido() {
     try {
-        dominio->setValor(VALOR_INVALIDO);
+        data->setValor(VALOR_INVALIDO);
         estado = FALHA + "Validação burlada";
     }
     catch(invalid_argument &excecao) {
-        if (dominio->getValor() == VALOR_INVALIDO) {
+        if (data->getValor() == VALOR_INVALIDO) {
             estado = FALHA + "Valor inválido setado, com exceção " + excecao.what();
         };
     };
 };
 
-void TesteDominio::testarValorValido() {
+void TesteData::testarValorValido() {
     try {
-        dominio->setValor(VALOR_VALIDO);
-        if (dominio->getValor() != VALOR_VALIDO) {
+        data->setValor(VALOR_VALIDO);
+        if (data->getValor() != VALOR_VALIDO) {
             estado = FALHA + "Valor valido não foi setado";
         };
     }
     catch(invalid_argument &excecao) {
-        estado = FALHA + "Exceção não esperada - " + excecao.what();
+        estado = FALHA + "Validação indesejada, com exceção " + excecao.what();
     };
 };
 
-void TesteData::setUp() {
-    dominio = new Data();
+void TesteSenha::setUp() {
+    senha = new Senha();
     estado = SUCESSO;
 };
 
-void TesteSenha::setUp() {
-    dominio = new Data();
-    estado = SUCESSO;
+void TesteSenha::testarValorInvalido() {
+    try {
+        senha->setValor(VALOR_INVALIDO);
+        estado = FALHA + "Validação burlada";
+    }
+    catch(invalid_argument &excecao) {
+        if (senha->getValor() == VALOR_INVALIDO) {
+            estado = FALHA + "Valor inválido setado, com exceção " + excecao.what();
+        };
+    };
+};
+
+void TesteSenha::testarValorValido() {
+    try {
+        senha->setValor(VALOR_VALIDO);
+        if (senha->getValor() != VALOR_VALIDO) {
+            estado = FALHA + "Valor valido não foi setado";
+        };
+    }
+    catch(invalid_argument &excecao) {
+        estado = FALHA + "Valor inválido setado, com exceção " + excecao.what();
+    };
 };
 
 void TesteClasse::setUp() {
-    dominio = new Data();
+    classe = new Classe();
     estado = SUCESSO;
+};
+
+void TesteClasse::testarValorInvalido() {
+    try {
+        classe->setValor(VALOR_INVALIDO);
+        estado = FALHA + "Validação burlada";
+    }
+    catch(invalid_argument &excecao) {
+        if (classe->getValor() == VALOR_INVALIDO) {
+            estado = FALHA + "Valor inválido setado, com exceção " + excecao.what();
+        };
+    };
+};
+
+void TesteClasse::testarValorValido() {
+    try {
+        classe->setValor(VALOR_VALIDO);
+        if (classe->getValor() != VALOR_VALIDO) {
+            estado = FALHA + "Valor valido não foi setado";
+        };
+    }
+    catch(invalid_argument &excecao) {
+        estado = FALHA + "Validação indesejada, com exceção " + excecao.what();
+    };
 };
 
 void TesteTelefone::setUp() {
-    dominio = new Data();
+    telefone = new Telefone();
     estado = SUCESSO;
+};
+
+void TesteTelefone::testarValorInvalido() {
+    try {
+        telefone->setValor(VALOR_INVALIDO);
+        estado = FALHA + "Validação burlada";
+    }
+    catch(invalid_argument &excecao) {
+        if (telefone->getValor() == VALOR_INVALIDO) {
+            estado = FALHA + "Valor inválido setado, com exceção " + excecao.what();
+        };
+    };
+};
+
+void TesteTelefone::testarValorValido() {
+    try {
+        telefone->setValor(VALOR_VALIDO);
+        if (telefone->getValor() != VALOR_VALIDO) {
+            estado = FALHA + "Valor valido não foi setado";
+        };
+    }
+    catch(invalid_argument &excecao) {
+        estado = FALHA + "Validação indesejada, com exceção " + excecao.what();
+    };
 };
 
 void TesteCodigo::setUp() {
-    dominio = new Data();
+    codigo = new Codigo();
     estado = SUCESSO;
+};
+
+void TesteCodigo::testarValorInvalido() {
+    try {
+        codigo->setValor(VALOR_INVALIDO);
+        estado = FALHA + "Validação burlada";
+    }
+    catch(invalid_argument &excecao) {
+        if (codigo->getValor() == VALOR_INVALIDO) {
+            estado = FALHA + "Valor inválido setado, com exceção " + excecao.what();
+        };
+    };
+};
+
+void TesteCodigo::testarValorValido() {
+    try {
+        codigo->setValor(VALOR_VALIDO);
+        if (codigo->getValor() != VALOR_VALIDO) {
+            estado = FALHA + "Valor valido não foi setado";
+        };
+    }
+    catch(invalid_argument &excecao) {
+        estado = FALHA + "Validação indesejada, com exceção " + excecao.what();
+    };
 };
 
 void TesteMatricula::setUp() {
-    dominio = new Data();
+    matricula = new Matricula();
     estado = SUCESSO;
+};
+
+void TesteMatricula::testarValorInvalido() {
+    try {
+        matricula->setValor(VALOR_INVALIDO);
+        estado = FALHA + "Validação burlada";
+    }
+    catch(invalid_argument &excecao) {
+        if (matricula->getValor() == VALOR_INVALIDO) {
+            estado = FALHA + "Valor inválido setado, com exceção " + excecao.what();
+        };
+    };
+};
+
+void TesteMatricula::testarValorValido() {
+    try {
+        matricula->setValor(VALOR_VALIDO);
+        if (matricula->getValor() != VALOR_VALIDO) {
+            estado = FALHA + "Valor valido não foi setado";
+        };
+    }
+    catch(invalid_argument &excecao) {
+        estado = FALHA + "Validação indesejada, com exceção " + excecao.what();
+    };
 };
 
 void TesteResultado::setUp() {
-    dominio = new Data();
+    resultado = new Resultado();
     estado = SUCESSO;
 };
 
+void TesteResultado::testarValorInvalido() {
+    try {
+        resultado->setValor(VALOR_INVALIDO);
+        estado = FALHA + "Validação burlada";
+    }
+    catch(invalid_argument &excecao) {
+        if (resultado->getValor() == VALOR_INVALIDO) {
+            estado = FALHA + "Valor inválido setado, com exceção " + excecao.what();
+        };
+    };
+};
+
+void TesteResultado::testarValorValido() {
+    try {
+        resultado->setValor(VALOR_VALIDO);
+        if (resultado->getValor() != VALOR_VALIDO) {
+            estado = FALHA + "Valor valido não foi setado";
+        };
+    }
+    catch(invalid_argument &excecao) {
+        estado = FALHA + "Validação indesejada, com exceção " + excecao.what();
+    };
+};
+
 void TesteTexto::setUp() {
-    dominio = new Data();
+    texto = new Texto();
     estado = SUCESSO;
+};
+
+void TesteTexto::testarValorInvalido() {
+    try {
+        texto->setValor(VALOR_INVALIDO);
+        estado = FALHA + "Validação burlada";
+    }
+    catch(invalid_argument &excecao) {
+        if (texto->getValor() == VALOR_INVALIDO) {
+            estado = FALHA + "Valor inválido setado, com exceção " + excecao.what();
+        };
+    };
+};
+
+void TesteTexto::testarValorValido() {
+    try {
+        texto->setValor(VALOR_VALIDO);
+        if (texto->getValor() != VALOR_VALIDO) {
+            estado = FALHA + "Valor valido não foi setado";
+        };
+    }
+    catch(invalid_argument &excecao) {
+        estado = FALHA + "Validação indesejada, com exceção " + excecao.what();
+    };
 };
 
 

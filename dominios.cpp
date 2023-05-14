@@ -3,17 +3,6 @@
 #include <iostream>
 using namespace std;
 
-// void DominioASerCriado::validar(string valor) {
-//     if (verificacao) {
-//         throw invalid_argument("explique o erro");
-//     };
-// };
-
-// void DominioASerCriado::setValor(string valor) {
-//     validar(valor);
-//     this->valor = valor;
-// };
-
 void Data::validar(string valor) {          /*matricula aluno: 211043351*/
     if ((valor.size() != 11) ||
         (valor[2] != '/' | valor[6] != '/')) {
@@ -115,13 +104,13 @@ void Telefone::validar(string valor) {          /*matricula aluna: 211038253*/
     for (int i = 0; i < valor.size(); i++) {
         char caractere = valor[i];
 
-        if (i = 0) {
+        if (i == 0) {
             if (caractere != '+') {
                 throw invalid_argument("Telefone inválido");
             };
         } else {
             if (!(caractere >= '0' & caractere <= '9')) {
-            throw invalid_argument("Telefone possui caractere inválido");
+                throw invalid_argument("Telefone possui caractere inválido");
             };
         };
     };
@@ -202,7 +191,7 @@ void Matricula::setValor(string valor) {
 };
 
 void Resultado::validar(string valor) {         /*matricula aluna: 221030830*/
-    if ((valor != "APROVADO") || 
+    if ((valor != "APROVADO") &&
         (valor != "REPROVADO")) {
         throw invalid_argument("Formato inválido");
     };
