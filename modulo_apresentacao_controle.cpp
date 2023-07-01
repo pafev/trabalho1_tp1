@@ -22,7 +22,7 @@ void CntrAControle::setCntrATeste
 void CntrAControle::executar() {
     bool autenticado = false;
 
-    while(1){
+    while(true){
         system("cls"); //limpa terminal
 
         cout << "Sistema de suporte ao Gerenciamento de Testes" << endl;
@@ -31,23 +31,22 @@ void CntrAControle::executar() {
         cout << "2 - Cadastrar" << endl;
         cout << "3 - Sair" << endl;
 
-        char a;
+        int a;
         cin >> a;
         switch(a) {
-            case '1':
+            case 1: 
                 autenticado = cntrAAutenticacao->autenticar(&matricula);
                 if(autenticado) executarAutenticado();
                 break;
-            case '2':
+            case 2:
                 cntrADesenvolvedor->cadastrar();
                 break;
-            case '3':
+            case 3:
                 return;
             default:
                 cout << "Opção Inválida" << endl;
                 cin >> a;
                 break;
-
         }
 
     }

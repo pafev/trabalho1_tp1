@@ -1,8 +1,14 @@
 #include "modulo_apresentacao_autenticacao.hpp"
 
-bool CntrAAutenticacao::autenticar(Matricula* matricula) {
+#include <iostream>
+
+using namespace std;
+
+bool CntrAAutenticacao::autenticar(Matricula *matricula) {
+    cout << "ola" << endl;
     Senha senha;
     string matriculaStr, senhaStr;
+    bool autenticado = false;
 
     while(true){
         cout << "Autenticação de Desenvolvedor" << endl;
@@ -16,13 +22,12 @@ bool CntrAAutenticacao::autenticar(Matricula* matricula) {
         try {
             matriculaObj.setValor(matriculaStr);
             senhaObj.setValor(senhaStr);
-        }
-        catch (const invalid_argument &exp) {
+        } catch (const invalid_argument &exp) {
             cout << endl << "Dado em formato incorreto." << endl;
             break;
-        }
+        };
 
-        bool autenticado = cntrSAutenticacao->autenticar(matriculaObj, senhaObj); 
+        autenticado = cntrSAutenticacao->autenticar(matriculaObj, senhaObj); 
         if(autenticado){
          matricula->setValor(matriculaStr);
          return true;
@@ -32,9 +37,8 @@ bool CntrAAutenticacao::autenticar(Matricula* matricula) {
          char entrada;
          cin >> entrada;
          if (entrada == '1') return false;
-        }
+        };
 
-        return autenticado; 
-    }
-
-}
+    };
+    return autenticado; 
+};

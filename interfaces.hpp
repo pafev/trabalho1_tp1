@@ -1,8 +1,8 @@
 #ifndef INTERFACES_HPP_INCLUDED
 #define INTERFACES_HPP_INCLUDED
 
-#include "dominios.cpp"
-#include "entidades.cpp"
+#include "dominios.hpp"
+#include "entidades.hpp"
 #include <list>
 
 using namespace std;
@@ -14,7 +14,7 @@ class IATeste;
 class IAControle {
 public:
     virtual void executar() = 0;
-    virtual void setCntrAAutenticação(IAAutenticacao*) = 0;
+    virtual void setCntrAAutenticacao(IAAutenticacao*) = 0;
     virtual void setCntrADesenvolvedor(IADesenvolvedor*) = 0;
     virtual void setCntrATeste(IATeste*) = 0;
     virtual ~IAControle(){}

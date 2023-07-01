@@ -1,5 +1,8 @@
 #include "modulo_apresentacao_desenvolvedor.hpp"
 
+#include <iostream>
+using namespace std;
+
 void CntrADesenvolvedor::executar(Matricula* matricula){
     string nomeStr, senhaStr, telefoneStr;
     Senha senhaObj;
@@ -96,10 +99,10 @@ void CntrADesenvolvedor::executar(Matricula* matricula){
             break;
         case '3':
             cout << "Tem certeza que deseja descadastrar o desenvolvedor? (s/n)" << endl;
-            char entrada;
-            cin >> entrada;
+            char confirmacao;
+            cin >> confirmacao;
 
-            if(entrada == 's' || entrada == 'S') {
+            if(confirmacao == 's' || confirmacao == 'S') {
                 if(cntrSDesenvolvedor->descadastrar(*matricula)) {
                     cout << "Desenvolvedor descadastrado com sucesso" << endl;
                     matricula->setValor("");

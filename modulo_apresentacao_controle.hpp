@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class CntrAControle {
+class CntrAControle: public IAControle {
     private:
         IAAutenticacao *cntrAAutenticacao;
         IADesenvolvedor *cntrADesenvolvedor;
