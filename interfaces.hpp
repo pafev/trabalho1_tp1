@@ -34,7 +34,7 @@ public:
 class IADesenvolvedor {
 public:
     virtual void executar(Matricula*) = 0;
-    virtual void executar() = 0;
+    virtual void cadastrar() = 0;
     virtual void setCntrSDesenvolvedor(ISDesenvolvedor*) = 0;
     virtual ~IADesenvolvedor(){}
 };

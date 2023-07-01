@@ -39,7 +39,7 @@ void CntrAControle::executar() {
                 if(autenticado) executarAutenticado();
                 break;
             case '2':
-                cntrADesenvolvedor->executar();
+                cntrADesenvolvedor->cadastrar();
                 break;
             case '3':
                 return;
