@@ -13,8 +13,8 @@ void CntrADesenvolvedor::executar(Matricula* matricula){
     while(true) {
         system("clear || cls");
         cout << "Desenvolvedor: " << matricula->getValor() << endl;
-        cout << "1 - Visualizar" << endl;
-        cout << "2 - Editar" << endl;
+        cout << "1 - Visualizar conta" << endl;
+        cout << "2 - Editar conta" << endl;
         cout << "3 - Descadastrar conta" << endl;
         cout << "4 - Sair" << endl;
 
@@ -22,6 +22,15 @@ void CntrADesenvolvedor::executar(Matricula* matricula){
         char opcaoDesenvolvedor;
         cin >> opcaoDesenvolvedor;
         switch (opcaoDesenvolvedor) {
+        case '1':
+            desenvolvedorObj.setMatricula(*matricula);
+            if(cntrSDesenvolvedor->visualizar(*matricula, &desenvolvedorObj)) {
+                cout << "Nome: " << desenvolvedorObj.getNome().getValor() << endl;
+                cout << "Telefone: " << desenvolvedorObj.getTelefone().getValor() << endl;
+            } else {
+                cout << "Não foi possível visualizar teste" << endl;
+            }
+            break;
         case '2':
             while(true) {
                 system("clear || cls");
