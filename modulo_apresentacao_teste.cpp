@@ -43,72 +43,74 @@ void CntrATeste::executar(Matricula *matricula) {
                     Teste testeObj;
                     switch(opcaoTeste) {
                         case 1:
+                            system("cls || clear");
                             if(cntrSTeste->visualizarTestes(*matricula, &testes)) {
-                                cout << "Aqui se visualiza testes" << endl;
-                                cin;
+                                cout << endl << "Aqui se visualiza testes";
                             } else {
                                 cout << "Não foi possível visualizar testes" << endl;
-                                cin;
                             }
+                            cout << endl << "Pressione Enter para continuar" << endl;
+                            cin.get();
+                            cin.ignore();
                             break;
                         case 2:
+                            system("cls || clear");
                             cout << "Digite o código do Teste: ";
                             cin >> codigoStr;
                             codigoObj.setValor(codigoStr);
                             if(cntrSTeste->visualizarTeste(codigoObj, &teste)) {
-                                cout << endl << "Teste de código " << teste.getCodigo().getValor() << endl;
+                                system("cls || clear");
+                                cout << "Teste de código " << teste.getCodigo().getValor() << endl;
                                 cout << "Nome: " << teste.getNome().getValor() << endl;
                                 cout << "Classe: " << teste.getClasse().getValor() << endl;
-                                cin;
                             } else {
                                 cout << "Não foi possível visualizar teste" << endl;
-                                cin;
                             }
+                            cout << endl << "Pressione Enter para continuar" << endl;
+                            cin.get();
+                            cin.ignore();
+                            break;
                         case 3:
+                            system("cls || clear");
                             cout << "Digite o nome do Teste: ";
                             cin >> nomeStr;
+                            cout << "Digite o código do Teste: ";
+                            cin >> codigoStr;
+                            cout << "Digite a classe do Teste: ";
+                            cin >> classeStr;
 
                             try {
                                 nomeObj.setValor(nomeStr);
                                 testeObj.setNome(nomeObj);
-                            } catch(const invalid_argument& e) {
-                                cout << e.what() << endl;
-                                cin;
-                                break;
-                            };
-
-                            cout << "Digite o código do Teste: ";
-                            cin >> codigoStr;
-
-                            try {
                                 codigoObj.setValor(codigoStr);
                                 testeObj.setCodigo(codigoObj);
-                            } catch(const invalid_argument& e) {
-                                cout << e.what() << endl;
-                                cin;
-                                break;
-                            };
-
-                            cout << "Digite a classe do Teste: ";
-                            cin >> classeStr;
-                            
-                            try {
                                 classeObj.setValor(classeStr);
                                 testeObj.setClasse(classeObj);
                             } catch(const invalid_argument& e) {
-                                cout << e.what() << endl;
-                                cin;
+                                system("cls || clear");
+                                cout << "Dado em formato incorreto." << endl;
+                                cout << endl << "Pressione Enter para continuar" << endl;
+                                cin.get();
+                                cin.ignore();
                                 break;
                             };
 
                             if(cntrSTeste->cadastrarTeste(testeObj, *matricula)) {
+                                system("cls || clear");
                                 cout << "Teste cadastrado com sucesso" << endl;
-                                cin;
+                                cout << endl << "Pressione Enter para continuar" << endl;
+                                cin.get();
+                                cin.ignore();
                             } else {
+                                system("cls || clear");
                                 cout << "Não foi possível cadastrar teste" << endl;
-                                cin;
+                                cout << endl << "Pressione Enter para continuar" << endl;
+                                cin.get();
+                                cin.ignore();
                             }
+                            break;
                         case 4:
+                            system("cls || clear");
                             cout << "Digite o código do teste: ";
                             cin >> codigoStr;
 
@@ -116,12 +118,16 @@ void CntrATeste::executar(Matricula *matricula) {
                                 codigoObj.setValor(codigoStr);
                                 testeObj.setCodigo(codigoObj);
                             } catch(const invalid_argument& e) {
-                                cout << e.what() << endl;
-                                cin;
+                                system("cls || clear");
+                                cout << "Dado em formato incorreto." << endl;
+                                cout << endl << "Pressione Enter para continuar" << endl;
+                                cin.get();
+                                cin.ignore();
                                 break;
                             };
 
                             int opcaoEditaTeste;
+                            system("cls || clear");
                             cout << "O que deseja editar?" << endl;
                             cout << "1 - Editar nome" << endl;
                             cout << "2 - Editar classe" << endl;
@@ -130,46 +136,62 @@ void CntrATeste::executar(Matricula *matricula) {
 
                             switch(opcaoEditaTeste) {
                                 case 1:
-                                    cout << "Digite o novo nome: ";
+                                    cout << endl << "Digite o novo nome: ";
                                     cin >> nomeStr;
                                     try {
                                         nomeObj.setValor(nomeStr);
                                         testeObj.setNome(nomeObj);
                                     } catch(const invalid_argument& e) {
-                                        cout << e.what() << endl;
-                                        cin;
+                                        system("cls || clear");
+                                        cout << "Dado em formato incorreto." << endl;
+                                        cout << endl << "Pressione Enter para continuar" << endl;
+                                        cin.get();
+                                        cin.ignore();
                                         break;
                                     };
 
                                     if(cntrSTeste->editarTeste(testeObj)) {
-                                        cout << "Teste editado com sucesso" << endl;
-                                        cin;
+                                        system("cls || clear");
+                                        cout << "Nome alterado com sucesso" << endl;
+                                        cout << endl << "Pressione Enter para continuar" << endl;
+                                        cin.get();
+                                        cin.ignore();
                                     } else {
-                                        cout << "Não foi possível editar teste" << endl;
-                                        cin;
+                                        system("cls || clear");
+                                        cout << "Erro ao alterar nome" << endl;
+                                        cout << endl << "Pressione Enter para continuar" << endl;
+                                        cin.get();
+                                        cin.ignore();
                                     };
-
                                     break;
                                 case 2:
-                                    cout << "Digite a nova classe: ";
+                                    cout << endl << "Digite a nova classe: ";
                                     cin >> classeStr;
                                     try {
                                         classeObj.setValor(classeStr);
                                         testeObj.setClasse(classeObj);
                                     } catch(const invalid_argument& e) {
-                                        cout << e.what() << endl;
-                                        cin;
+                                        system("cls || clear");
+                                        cout << endl << "Dado em formato incorreto." << endl;
+                                        cout << "Pressione Enter para continuar" << endl;
+                                        cin.get();
+                                        cin.ignore();
                                         break;
                                     };
 
                                     if(cntrSTeste->editarTeste(testeObj)) {
-                                        cout << "Teste editado com sucesso" << endl;
-                                        cin;
+                                        system("cls || clear");
+                                        cout << "Classe alterada com sucesso" << endl;
+                                        cout << "Pressione Enter para continuar" << endl;
+                                        cin.get();
+                                        cin.ignore();
                                     } else {
-                                        cout << "Não foi possível editar teste" << endl;
-                                        cin;
+                                        system("cls || clear");
+                                        cout << "Erro ao alterar classe" << endl;
+                                        cout << "Pressione Enter para continuar" << endl;
+                                        cin.get();
+                                        cin.ignore();
                                     };
-
                                     break;
                                 case 3:
                                     break;

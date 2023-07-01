@@ -12,7 +12,7 @@ bool StubSAutenticacao::autenticar(Matricula matricula, Senha senha) {
 bool StubSDesenvolvedor::visualizar(Matricula matricula, Desenvolvedor *desenvolvedor) {
     desenvolvedor->setMatricula(matricula);
     Texto nomeObj;
-    nomeObj.setValor("aqui esta um exemplo");
+    nomeObj.setValor("NomeDeDesenvolvedor");
     desenvolvedor->setNome(nomeObj);
     Senha senhaObj;
     senhaObj.setValor("123@ab");
@@ -27,7 +27,7 @@ bool StubSDesenvolvedor::visualizar(Matricula matricula, Desenvolvedor *desenvol
 bool StubSTeste::visualizarTeste(Codigo codigo, Teste *teste) {
     teste->setCodigo(codigo);
     Texto nomeObj;
-    nomeObj.setValor("algum nome de teste");
+    nomeObj.setValor("NomeDeTeste");
     teste->setNome(nomeObj);
     Classe classeObj;
     classeObj.setValor("SISTEMA");
@@ -39,7 +39,7 @@ bool StubSTeste::visualizarTeste(Codigo codigo, Teste *teste) {
 bool StubSTeste::visualizarCasoDeTeste(Codigo codigo, CasoDeTeste *casoDeTeste) {
     casoDeTeste->setCodigo(codigo);
     Texto nomeObj;
-    nomeObj.setValor("nome de caso de teste");
+    nomeObj.setValor("NomeDeCasoTeste");
     casoDeTeste->setNome(nomeObj);
     Data dataObj;
     dataObj.setValor("01/07/2023");
