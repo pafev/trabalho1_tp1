@@ -7,16 +7,16 @@
 
 using namespace std;
 
-class IAAutenticação;
-class IADesenvolvedoor;
+class IAAutenticacao;
+class IADesenvolvedor;
 class IATeste;
 
 class IAControle {
 public:
     virtual void executar() = 0;
-    virtual void setCntrlAAutenticação(IAAutenticacao*) = 0;
-    virtual void setCntrlADesenvolvedor(IADesenvolvedoor*) = 0;
-    virtual void setCntrlATeste(IATeste*) = 0;
+    virtual void setCntrAAutenticação(IAAutenticacao*) = 0;
+    virtual void setCntrADesenvolvedor(IADesenvolvedor*) = 0;
+    virtual void setCntrATeste(IATeste*) = 0;
     virtual ~IAControle(){}
 };
 
@@ -41,8 +41,8 @@ public:
 
 class IATeste {
 public:
-    virtual bool executar(Matricula*) = 0;
-    virtual void setCntrlSTeste(ISTeste*) = 0;
+    virtual void executar(Matricula*) = 0;
+    virtual void setCntrSTeste(ISTeste*) = 0;
     virtual ~IATeste(){}
 };
 
