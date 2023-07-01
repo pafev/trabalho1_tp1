@@ -40,7 +40,7 @@ void CntrAControle::executar() {
 }
 
 void CntrAControle::executar(Matricula *matricula) {
-    while(true){
+    while(matricula->getValor() != ""){
         system("clear || cls");
 
         cout << "Sistema de suporte ao Gerenciamento de Testes" << endl;
@@ -55,7 +55,7 @@ void CntrAControle::executar(Matricula *matricula) {
         switch(a) {
             case '1':
                 cntrADesenvolvedor->executar(matricula);
-                return;
+                break;
             case '2':
                 cntrATeste->executar(matricula);
                 break;

@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-void CntrADesenvolvedor::executar(Matricula* matricula){
+void CntrADesenvolvedor::executar(Matricula *matricula){
     string nomeStr, senhaStr, telefoneStr;
     Senha senhaObj;
     Texto nomeObj;
@@ -35,7 +35,8 @@ void CntrADesenvolvedor::executar(Matricula* matricula){
             cin.ignore();
             break;
         case '2':
-            while (true) {
+            char opcaoEditar;
+            while (opcaoEditar != '4') {
                 system("cls || clear");
                 cout << "O que você deseja editar?" << endl;
                 cout << "1 - Nome" << endl;
@@ -43,7 +44,6 @@ void CntrADesenvolvedor::executar(Matricula* matricula){
                 cout << "3 - Telefone" << endl;
                 cout << "4 - Sair" << endl;
 
-                char opcaoEditar;
                 cin >> opcaoEditar;
                 switch (opcaoEditar) {
                 case '1':
@@ -144,7 +144,7 @@ void CntrADesenvolvedor::executar(Matricula* matricula){
                     }
                     break;
                 case '4':
-                    return;
+                    break;;
                 default:
                     system("cls || clear");
                     cout << endl << "Opção inválida." << endl;
@@ -163,9 +163,9 @@ void CntrADesenvolvedor::executar(Matricula* matricula){
 
             if(confirmacao == 's' || confirmacao == 'S') {
                 if(cntrSDesenvolvedor->descadastrar(*matricula)) {
+                    *matricula = *new Matricula();
                     system("cls || clear");
                     cout << "Desenvolvedor descadastrado com sucesso" << endl;
-                    matricula = new Matricula();
                     cout << endl << "Pressione Enter para continuar" << endl;
                     cin.get();
                     cin.ignore();
