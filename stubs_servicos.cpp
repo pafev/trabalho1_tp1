@@ -8,3 +8,51 @@ bool StubSAutenticacao::autenticar(Matricula matricula, Senha senha) {
     }
     return false;
 }
+
+bool StubSDesenvolvedor::visualizar(Matricula matricula, Desenvolvedor *desenvolvedor) {
+    desenvolvedor->setMatricula(matricula);
+    Texto nomeObj;
+    nomeObj.setValor("nome do desenvolvedor");
+    desenvolvedor->setNome(nomeObj);
+    Senha senhaObj;
+    senhaObj.setValor("123@ab");
+    desenvolvedor->setSenha(senhaObj);
+    Telefone telefoneObj;
+    telefoneObj.setValor("+61982155097");
+    desenvolvedor->setTelefone(telefoneObj);
+
+    return true;
+}
+
+bool StubSTeste::visualizarTeste(Codigo codigo, Teste *teste) {
+    teste->setCodigo(codigo);
+    Texto nomeObj;
+    nomeObj.setValor("algum nome de teste");
+    teste->setNome(nomeObj);
+    Classe classeObj;
+    classeObj.setValor("SISTEMA");
+    teste->setClasse(classeObj);
+
+    return true;
+}
+
+bool StubSTeste::visualizarCasoDeTeste(Codigo codigo, CasoDeTeste *casoDeTeste) {
+    casoDeTeste->setCodigo(codigo);
+    Texto nomeObj;
+    nomeObj.setValor("nome de caso de teste");
+    casoDeTeste->setNome(nomeObj);
+    Data dataObj;
+    dataObj.setValor("01/07/2023");
+    casoDeTeste->setData(dataObj);
+    Texto acaoObj;
+    acaoObj.setValor("descricao de uma acao");
+    casoDeTeste->setAcao(acaoObj);
+    Texto respostaObj;
+    respostaObj.setValor("descricao de resposta");
+    casoDeTeste->setResposta(respostaObj);
+    Resultado resultadoObj;
+    resultadoObj.setValor("REPROVADO");
+    casoDeTeste->setResultado(resultadoObj);
+
+    return true;
+}

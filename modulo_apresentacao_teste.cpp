@@ -56,7 +56,9 @@ void CntrATeste::executar(Matricula *matricula) {
                             cin >> codigoStr;
                             codigoObj.setValor(codigoStr);
                             if(cntrSTeste->visualizarTeste(codigoObj, &teste)) {
-                                cout << "Aqui se visualiza teste" << endl;
+                                cout << endl << "Teste de código " << teste.getCodigo().getValor() << endl;
+                                cout << "Nome: " << teste.getNome().getValor() << endl;
+                                cout << "Classe: " << teste.getClasse().getValor() << endl;
                                 cin;
                             } else {
                                 cout << "Não foi possível visualizar teste" << endl;
@@ -255,7 +257,12 @@ void CntrATeste::executar(Matricula *matricula) {
                             cin >> codigoStr;
                             codigoObj.setValor(codigoStr);
                             if(cntrSTeste->visualizarCasoDeTeste(codigoObj, &casoDeTeste)) {
-                                cout << "Aqui se visualiza caso de teste" << endl;
+                                cout << endl << "Caso de teste de código " << casoDeTeste.getCodigo().getValor() << endl;
+                                cout << "Nome: " << casoDeTeste.getNome().getValor() << endl;
+                                cout << "Data: " << casoDeTeste.getData().getValor() << endl;
+                                cout << "Acao: " << casoDeTeste.getAcao().getValor() << endl;
+                                cout << "Resposta: " << casoDeTeste.getResposta().getValor() << endl;
+                                cout << "Resultado: " << casoDeTeste.getResultado().getValor() << endl;
                                 cin;
                             } else {
                                 cout << "Não foi possível visualizar caso de teste" << endl;

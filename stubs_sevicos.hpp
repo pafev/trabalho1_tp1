@@ -24,10 +24,6 @@ inline bool StubSDesenvolvedor::descadastrar(Matricula matricula) {
     return true;
 }
 
-inline bool StubSDesenvolvedor::visualizar(Matricula matricula, Desenvolvedor *desenvolvedor) {
-    return true;
-}
-
 inline bool StubSDesenvolvedor::editar(Desenvolvedor desenvolvedor) {
     return true;
 }
@@ -55,10 +51,6 @@ inline bool StubSTeste::descadastrarTeste(Codigo codigo) {
     return true;
 }
 
-inline bool StubSTeste::visualizarTeste(Codigo codigo, Teste *teste) {
-    return true;
-}
-
 inline bool StubSTeste::visualizarTestes(Matricula matricula, list<Teste> *testes) {
     return true;
 }
@@ -72,10 +64,6 @@ inline bool StubSTeste::cadastrarCasoDeTeste(CasoDeTeste casoDeTeste, Codigo cod
 }
 
 inline bool StubSTeste::descadastrarCasoDeTeste(Codigo codigo) {
-    return true;
-}
-
-inline bool StubSTeste::visualizarCasoDeTeste(Codigo codigo, CasoDeTeste *casoDeTeste) {
     return true;
 }
 

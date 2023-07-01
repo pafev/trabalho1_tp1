@@ -31,21 +31,21 @@ void CntrAControle::executar() {
         cout << "2 - Cadastrar" << endl;
         cout << "3 - Sair" << endl;
 
-        int a;
-        cin >> a;
-        switch(a) {
-            case 1: 
+        char opcao;
+        cin >> opcao;
+        switch(opcao) {
+            case '1': 
                 autenticado = cntrAAutenticacao->autenticar(&matricula);
                 if(autenticado) executarAutenticado();
                 break;
-            case 2:
+            case '2':
                 cntrADesenvolvedor->cadastrar();
                 break;
-            case 3:
+            case '3':
                 return;
             default:
                 cout << "Opção Inválida" << endl;
-                cin >> a;
+                cin >> opcao;
                 break;
         }
 
@@ -58,11 +58,11 @@ void CntrAControle::executarAutenticado() {
         system("clear || cls");
 
         cout << "Sistema de suporte ao Gerenciamento de Testes" << endl;
-        cout << "Usuário:" << matricula.getValor() << endl;
+        cout << "Desenvolvedor: " << matricula.getValor() << endl;
         cout << "Selecione uma das seguintes opções:" << endl;
-        cout << "1 - Serviços de Usuário" << endl;
+        cout << "1 - Serviços de Desenvolvedor" << endl;
         cout << "2 - Serviços de Gerenciamento de Testes" << endl;
-        cout << "3 - Sair";
+        cout << "3 - Sair" << endl;
 
         char a;
         cin >> a;
