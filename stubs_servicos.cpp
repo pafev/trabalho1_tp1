@@ -12,7 +12,7 @@ bool StubSAutenticacao::autenticar(Matricula matricula, Senha senha) {
 bool StubSDesenvolvedor::visualizar(Matricula matricula, Desenvolvedor *desenvolvedor) {
     desenvolvedor->setMatricula(matricula);
     Texto nomeObj;
-    nomeObj.setValor("nome do desenvolvedor");
+    nomeObj.setValor("aqui esta um exemplo");
     desenvolvedor->setNome(nomeObj);
     Senha senhaObj;
     senhaObj.setValor("123@ab");
