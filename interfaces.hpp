@@ -3,7 +3,7 @@
 
 #include "dominios.cpp"
 #include "entidades.cpp"
-#include <stdexcept>
+#include <list>
 
 using namespace std;
 
@@ -50,7 +50,7 @@ class ISAutenticacao {
 public:
     virtual bool autenticar(Matricula, Senha) = 0;
     virtual ~ISAutenticacao(){}
-};
+}; 
 
 class ISDesenvolvedor {
 public:
@@ -66,11 +66,13 @@ public:
     virtual bool cadastrarTeste(Teste, Matricula) = 0;
     virtual bool descadastrarTeste(Codigo) = 0;
     virtual bool visualizarTeste(Codigo, Teste*) = 0;
+    virtual bool visualizarTestes(Matricula, list<Teste>*) = 0;
     virtual bool editarTeste(Teste) = 0;
 
     virtual bool cadastrarCasoDeTeste(CasoDeTeste, Codigo) = 0;
     virtual bool descadastrarCasoDeTeste(Codigo) = 0;
     virtual bool visualizarCasoDeTeste(Codigo, CasoDeTeste*) = 0;
+    virtual bool visualizarCasosDeTeste(Codigo, list<CasoDeTeste>*) = 0;
     virtual bool editarCasoDeTeste(CasoDeTeste) = 0;
 
     virtual ~ISTeste(){}
