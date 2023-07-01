@@ -4,39 +4,23 @@
 
 using namespace std;
 
-void CntrAControle::setCntrAAutenticacao
-(IAAutenticacao *cntr) {
-    cntrAAutenticacao = cntr;
-}
-
-void CntrAControle::setCntrADesenvolvedor
-(IADesenvolvedor *cntr) {
-    cntrADesenvolvedor = cntr;
-}
-
-void CntrAControle::setCntrATeste
-(IATeste *cntr) {
-    cntrATeste = cntr;
-}
-
 void CntrAControle::executar() {
-    bool autenticado = false;
-
     while(true){
         system("clear || cls"); //limpa terminal
 
-        cout << "Sistema de suporte ao Gerenciamento de Testes" << endl;
+        cout << "Sistema de suporte ao gerenciamento de Testes" << endl;
         cout << "Selecione uma das seguintes opções:" << endl;
         cout << "1 - Autenticar" << endl;
-        cout << "2 - Cadastrar" << endl;
-        cout << "3 - Sair" << endl;
+        cout << "2 - Cadastrar desenvolvedor" << endl;
+        cout << "3 - Fechar programa" << endl;
 
         char opcao;
         cin >> opcao;
         switch(opcao) {
             case '1': 
-                autenticado = cntrAAutenticacao->autenticar(&matricula);
-                if(autenticado) executarAutenticado();
+                if(cntrAAutenticacao->autenticar(&matricula)) {
+                   this->executar(&matricula);
+                };
                 break;
             case '2':
                 cntrADesenvolvedor->cadastrar();
@@ -44,43 +28,46 @@ void CntrAControle::executar() {
             case '3':
                 return;
             default:
+                system("clear || cls");
                 cout << "Opção Inválida" << endl;
-                cin >> opcao;
+                cout << "Pressione Enter para continuar" << endl;
+                cin.get();
+                cin.ignore();
                 break;
         }
 
     }
 }
 
-void CntrAControle::executarAutenticado() {
-
-    while(1){
+void CntrAControle::executar(Matricula *matricula) {
+    while(true){
         system("clear || cls");
 
         cout << "Sistema de suporte ao Gerenciamento de Testes" << endl;
-        cout << "Desenvolvedor: " << matricula.getValor() << endl;
+        cout << "Desenvolvedor: " << matricula->getValor() << endl;
         cout << "Selecione uma das seguintes opções:" << endl;
-        cout << "1 - Serviços de Desenvolvedor" << endl;
-        cout << "2 - Serviços de Gerenciamento de Testes" << endl;
+        cout << "1 - Subsistema de Desenvolvedor" << endl;
+        cout << "2 - Subsistema de Gerenciamento de Testes" << endl;
         cout << "3 - Sair" << endl;
 
         char a;
         cin >> a;
         switch(a) {
             case '1':
-                cntrADesenvolvedor->executar(&matricula);
-                if (matricula.getValor() == "") return;
+                cntrADesenvolvedor->executar(matricula);
                 break;
             case '2':
-                cntrATeste->executar(&matricula);
+                cntrATeste->executar(matricula);
                 break;
             case '3':
                 return;
             default:
+                system("cls || clear");
                 cout << "Opção Inválida" << endl;
-                cin >> a;
+                cout << "Pressione Enter para continuar" << endl;
+                cin.get();
+                cin.ignore();
                 break;
-
         }
     }
 }

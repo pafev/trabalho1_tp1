@@ -13,12 +13,24 @@ class CntrAControle: public IAControle {
         IADesenvolvedor *cntrADesenvolvedor;
         IATeste *cntrATeste;
         Matricula matricula;
-        void executarAutenticado();
     public:
         void executar();
+        void executar(Matricula*);
         void setCntrAAutenticacao(IAAutenticacao*);
         void setCntrADesenvolvedor(IADesenvolvedor*);
         void setCntrATeste(IATeste*);
 };
+
+inline void CntrAControle::setCntrAAutenticacao(IAAutenticacao *cntr) {
+    cntrAAutenticacao = cntr;
+}
+
+inline void CntrAControle::setCntrADesenvolvedor(IADesenvolvedor *cntr) {
+    cntrADesenvolvedor = cntr;
+}
+
+inline void CntrAControle::setCntrATeste(IATeste *cntr) {
+    cntrATeste = cntr;
+}
 
 #endif // MODULO_APRESENTACAO_CONTROLE_HPP

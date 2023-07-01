@@ -5,11 +5,11 @@
 using namespace std;
 
 bool CntrAAutenticacao::autenticar(Matricula *matricula) {
-    Senha senha;
-    string matriculaStr, senhaStr;
-    bool autenticado = false;
-
     while(true){
+        string matriculaStr, senhaStr;
+        Matricula matriculaObj;
+        Senha senhaObj;
+
         system("clear || cls");
         cout << "Autenticação de Desenvolvedor" << endl;
         cout << "Digite a matrícula: ";
@@ -17,28 +17,28 @@ bool CntrAAutenticacao::autenticar(Matricula *matricula) {
         cout << "Digite a senha: ";
         cin >> senhaStr;
         
-        Matricula matriculaObj;
-        Senha senhaObj;
         try {
             matriculaObj.setValor(matriculaStr);
             senhaObj.setValor(senhaStr);
         } catch (const invalid_argument &exp) {
-            cout << endl << "Dado em formato incorreto." << endl;
-            break;
+            system("cls || clear");
+            cout << "Dado em formato incorreto." << endl;
+            cout << "Pressione Enter para retornar" << endl;
+            cin.get();
+            cin.ignore();
+            return false;
         };
 
-        autenticado = cntrSAutenticacao->autenticar(matriculaObj, senhaObj); 
-        if(autenticado){
-         matricula->setValor(matriculaStr);
-         return true;
+        if(cntrSAutenticacao->autenticar(matriculaObj, senhaObj)){
+            matricula->setValor(matriculaStr);
+            return true;
         } else {
-         cout << "Email ou senha incorretos" << endl;
-         cout << "Pressione qualquer tecla para continuar ou 1 para sair" << endl;
-         char entrada;
-         cin >> entrada;
-         if (entrada == '1') return false;
+            system("cls || clear");
+            cout << "Email ou senha incorretos" << endl;
+            cout << "Pressione Enter para retornar" << endl;
+            cin.get();
+            cin.ignore();
+            return false;
         };
-
     };
-    return autenticado; 
 };

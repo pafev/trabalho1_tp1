@@ -14,6 +14,7 @@ class IATeste;
 class IAControle {
 public:
     virtual void executar() = 0;
+    virtual void executar(Matricula*) = 0;
     virtual void setCntrAAutenticacao(IAAutenticacao*) = 0;
     virtual void setCntrADesenvolvedor(IADesenvolvedor*) = 0;
     virtual void setCntrATeste(IATeste*) = 0;
