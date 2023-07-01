@@ -7,7 +7,7 @@ using namespace std;
 
 void CntrATeste::executar(Matricula *matricula) {
     while(true) {
-        int opcao;
+        char opcao;
 
         system("clear || cls");
         cout << "Sistema de Testes" << endl;
@@ -21,7 +21,7 @@ void CntrATeste::executar(Matricula *matricula) {
         string codigoTesteStr;
         Codigo codigoTesteObj;
         switch (opcao) {
-            case 1:
+            case '1':
                 while(true) {
                     int opcaoTeste;
 
@@ -207,7 +207,7 @@ void CntrATeste::executar(Matricula *matricula) {
                     }
                 };
                 break;
-            case 2:
+            case '2':
                 cout << "Digite código do teste do qual deseja gerenciar casos de teste" << endl;
                 cin >> codigoTesteStr;
 
@@ -510,7 +510,7 @@ void CntrATeste::executar(Matricula *matricula) {
                     }
                 };
                 break;
-            case 3:
+            case '3':
                 return;
             default:
                 cout << "Opção inválida" << endl;

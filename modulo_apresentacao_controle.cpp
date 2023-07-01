@@ -55,7 +55,7 @@ void CntrAControle::executar(Matricula *matricula) {
         switch(a) {
             case '1':
                 cntrADesenvolvedor->executar(matricula);
-                break;
+                return;
             case '2':
                 cntrATeste->executar(matricula);
                 break;

@@ -18,11 +18,11 @@ void CntrADesenvolvedor::executar(Matricula* matricula){
         cout << "3 - Descadastrar conta" << endl;
         cout << "4 - Sair" << endl;
 
-        char entrada;
         char opcaoDesenvolvedor;
         cin >> opcaoDesenvolvedor;
         switch (opcaoDesenvolvedor) {
         case '1':
+            system("cls || clear");
             desenvolvedorObj.setMatricula(*matricula);
             if(cntrSDesenvolvedor->visualizar(*matricula, &desenvolvedorObj)) {
                 cout << "Nome: " << desenvolvedorObj.getNome().getValor() << endl;
@@ -30,10 +30,13 @@ void CntrADesenvolvedor::executar(Matricula* matricula){
             } else {
                 cout << "Não foi possível visualizar teste" << endl;
             }
+            cout << endl << "Pressione Enter para continuar" << endl;
+            cin.get();
+            cin.ignore();
             break;
         case '2':
-            while(true) {
-                system("clear || cls");
+            while (true) {
+                system("cls || clear");
                 cout << "O que você deseja editar?" << endl;
                 cout << "1 - Nome" << endl;
                 cout << "2 - Senha" << endl;
@@ -53,37 +56,59 @@ void CntrADesenvolvedor::executar(Matricula* matricula){
                         desenvolvedorObj.setNome(nomeObj);
                     }
                     catch (const invalid_argument &exp) {
-                        cout << endl << "Dado em formato incorreto." << endl;
-                        cout << "Pressione qualquer tecla para continuar" << endl;
-                        char entrada;
-                        cin >> entrada;
+                        system("cls || clear");
+                        cout << "Dado em formato incorreto." << endl;
+                        cout << endl << "Pressione Enter para continuar" << endl;
+                        cin.get();
+                        cin.ignore();
                         break;
                     }
 
                     if (cntrSDesenvolvedor->editar(desenvolvedorObj)){
+                        system("cls || clear");
                         cout << "Nome alterado com sucesso" << endl;
+                        cout << endl << "Pressione Enter para continuar" << endl;
+                        cin.get();
+                        cin.ignore();
+                        break;
                     } else {
+                        system("cls || clear");
                         cout << "Erro ao alterar nome" << endl;
+                        cout << endl << "Pressione Enter para continuar" << endl;
+                        cin.get();
+                        cin.ignore();
+                        break;
                     }
-                    break;
                 case '2':
                     cout << endl << "Digite a nova senha: ";
                     cin >> senhaStr;
 
                     try {
                         senhaObj.setValor(senhaStr);
+                        desenvolvedorObj.setMatricula(*matricula);
+                        desenvolvedorObj.setSenha(senhaObj);
                     }
                     catch (const invalid_argument &exp) {
+                        system("cls || clear");
                         cout << endl << "Dado em formato incorreto." << endl;
+                        cout << "Pressione Enter para continuar" << endl;
+                        cin.get();
+                        cin.ignore();
                         break;
                     }
 
-                    desenvolvedorObj.setMatricula(*matricula);
-                    desenvolvedorObj.setSenha(senhaObj);
                     if (cntrSDesenvolvedor->editar(desenvolvedorObj)){
+                        system("cls || clear");
                         cout << "Senha alterada com sucesso" << endl;
+                        cout << "Pressione Enter para continuar" << endl;
+                        cin.get();
+                        cin.ignore();
                     } else {
+                        system("cls || clear");
                         cout << "Erro ao alterar senha" << endl;
+                        cout << "Pressione Enter para continuar" << endl;
+                        cin.get();
+                        cin.ignore();
                     }
                     break;
                 case '3':
@@ -92,55 +117,76 @@ void CntrADesenvolvedor::executar(Matricula* matricula){
 
                     try {
                         telefoneObj.setValor(telefoneStr);
+                        desenvolvedorObj.setMatricula(*matricula);
+                        desenvolvedorObj.setTelefone(telefoneObj);
                     }
                     catch (const invalid_argument &exp) {
+                        system("cls || clear");
                         cout << endl << "Dado em formato incorreto." << endl;
+                        cout << "Pressione Enter para continuar" << endl;
+                        cin.get();
+                        cin.ignore();
                         break;
                     }
 
-                    desenvolvedorObj.setMatricula(*matricula);
-                    desenvolvedorObj.setTelefone(telefoneObj);
                     if (cntrSDesenvolvedor->editar(desenvolvedorObj)){
+                        system("cls || clear");
                         cout << "Telefone alterado com sucesso" << endl;
+                        cout << "Pressione Enter para continuar" << endl;
+                        cin.get();
+                        cin.ignore();
                     } else {
+                        system("cls || clear");
                         cout << "Erro ao alterar telefone" << endl;
+                        cout << "Pressione Enter para continuar" << endl;
+                        cin.get();
+                        cin.ignore();
                     }
                     break;
                 case '4':
                     return;
                 default:
+                    system("cls || clear");
                     cout << endl << "Opção inválida." << endl;
+                    cout << endl << "Pressione Enter para continuar" << endl;
+                    cin.get();
+                    cin.ignore();
                     break;
                 }
-                cout << "Pressione qualquer tecla para continuar" << endl;
-                cin >> entrada;
             }
             break;
         case '3':
-            system("clear || cls");
+            system("cls || clear");
             cout << "Tem certeza que deseja descadastrar o desenvolvedor? (s/n)" << endl;
             char confirmacao;
             cin >> confirmacao;
 
             if(confirmacao == 's' || confirmacao == 'S') {
                 if(cntrSDesenvolvedor->descadastrar(*matricula)) {
-                    cout << endl << "Desenvolvedor descadastrado com sucesso" << endl;
-                    matricula->setValor("");
-                    cin;
+                    system("cls || clear");
+                    cout << "Desenvolvedor descadastrado com sucesso" << endl;
+                    matricula = new Matricula();
+                    cout << endl << "Pressione Enter para continuar" << endl;
+                    cin.get();
+                    cin.ignore();
                     return;
                 } else {
-                    cout << endl << "Erro ao descadastrar desenvolvedor" << endl;
+                    system("cls || clear");
+                    cout << "Erro ao descadastrar desenvolvedor" << endl;
+                    cout << endl << "Pressione Enter para continuar" << endl;
+                    cin.get();
+                    cin.ignore();
                 }
             }
-            cout << "Digite qualquer texto para continuar" << endl;
-            cin >> entrada;
             break;
         case '4':
             return;
         default:
+            system("cls || clear");
             cout << "Opção inválida." << endl;
-            cout << "Digite qualquer texto para continuar" << endl;
-            cin >> entrada;
+            cout << endl << "Pressione Enter para continuar" << endl;
+            cin.get();
+            cin.ignore();
             break;
         }
     }
