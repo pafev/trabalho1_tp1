@@ -23,7 +23,7 @@ void CntrAControle::executar() {
     bool autenticado = false;
 
     while(true){
-        system("cls"); //limpa terminal
+        system("clear || cls"); //limpa terminal
 
         cout << "Sistema de suporte ao Gerenciamento de Testes" << endl;
         cout << "Selecione uma das seguintes opções:" << endl;
@@ -55,7 +55,7 @@ void CntrAControle::executar() {
 void CntrAControle::executarAutenticado() {
 
     while(1){
-        system("cls");
+        system("clear || cls");
 
         cout << "Sistema de suporte ao Gerenciamento de Testes" << endl;
         cout << "Usuário:" << matricula.getValor() << endl;

@@ -9,7 +9,7 @@ void CntrATeste::executar(Matricula *matricula) {
     while(true) {
         int opcao;
 
-        system("cls");
+        system("clear || cls");
         cout << "Sistema de Testes" << endl;
         cout << "Desenvolvedor: " << matricula->getValor() << endl;
         cout << "Selecione a opção que deseja" << endl;
@@ -25,7 +25,7 @@ void CntrATeste::executar(Matricula *matricula) {
                 while(true) {
                     int opcaoTeste;
 
-                    system("cls");
+                    system("clear || cls");
                     cout << "Gerenciamento de Testes" << endl;
                     cout << "Selecione a opção que deseja" << endl;
                     cout << "1 - Visualizar Testes" << endl;
@@ -220,7 +220,7 @@ void CntrATeste::executar(Matricula *matricula) {
                 while(true) {
                     int opcaoCasoDeTeste;
 
-                    system("cls");
+                    system("clear || cls");
                     cout << "Gerenciamento de Casos de Teste" << endl;
                     cout << "Selecione a opção que deseja" << endl;
                     cout << "1 - Visualizar Casos de Testes" << endl;

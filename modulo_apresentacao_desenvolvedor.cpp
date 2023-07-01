@@ -11,6 +11,7 @@ void CntrADesenvolvedor::executar(Matricula* matricula){
     Desenvolvedor desenvolvedorObj;
     
     while(true) {
+        system("clear || cls");
         cout << "Desenvolvedor: " << matricula->getValor() << endl;
         cout << "1 - Visualizar" << endl;
         cout << "2 - Editar" << endl;
@@ -22,6 +23,7 @@ void CntrADesenvolvedor::executar(Matricula* matricula){
         switch (entrada)
         {
         case '2':
+            system("clear || cls");
             cout << "O que você deseja editar?" << endl;
             cout << "1 - Nome" << endl;
             cout << "2 - Senha" << endl;
@@ -98,6 +100,7 @@ void CntrADesenvolvedor::executar(Matricula* matricula){
             }
             break;
         case '3':
+            system("clear || cls");
             cout << "Tem certeza que deseja descadastrar o desenvolvedor? (s/n)" << endl;
             char confirmacao;
             cin >> confirmacao;
@@ -131,6 +134,7 @@ void CntrADesenvolvedor::cadastrar() {
     Desenvolvedor desenvolvedorObj;
 
     while(true) { 
+        system("clear || cls")
         cout << "Cadastro de Desenvolvedor" << endl;
         cout << "Digite sua matrícula: " << endl;
         cin >> matriculaStr;

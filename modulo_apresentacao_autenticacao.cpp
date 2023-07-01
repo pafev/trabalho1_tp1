@@ -5,12 +5,12 @@
 using namespace std;
 
 bool CntrAAutenticacao::autenticar(Matricula *matricula) {
-    cout << "ola" << endl;
     Senha senha;
     string matriculaStr, senhaStr;
     bool autenticado = false;
 
     while(true){
+        system("clear || cls");
         cout << "Autenticação de Desenvolvedor" << endl;
         cout << "Digite a matrícula: ";
         cin >> matriculaStr;
