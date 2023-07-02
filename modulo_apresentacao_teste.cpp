@@ -10,7 +10,7 @@ void CntrATeste::executar(Matricula *matricula) {
         char opcao;
 
         system("clear || cls");
-        cout << "Sistema de Testes" << endl;
+        cout << "Subsistema de Testes" << endl;
         cout << "Desenvolvedor: " << matricula->getValor() << endl;
         cout << "Selecione a opção que deseja" << endl;
         cout << "1 - Gerenciar Testes" << endl;
@@ -23,10 +23,14 @@ void CntrATeste::executar(Matricula *matricula) {
         switch (opcao) {
             case '1':
                 while(true) {
-                    int opcaoTeste;
+                    string nomeStr, codigoStr, classeStr;
+                    Codigo codigoObj;
+                    Texto nomeObj;
+                    Classe classeObj;
+                    Teste testeObj;
 
-                    system("clear || cls");
-                    cout << "Gerenciamento de Testes" << endl;
+                    system("cls || clear");
+                    cout << "Subsistema de Testes - Gerenciamento de Testes" << endl;
                     cout << "Selecione a opção que deseja" << endl;
                     cout << "1 - Visualizar Testes" << endl;
                     cout << "2 - Visualizar Teste" << endl;
@@ -34,13 +38,9 @@ void CntrATeste::executar(Matricula *matricula) {
                     cout << "4 - Editar Teste" << endl;
                     cout << "5 - Descadastrar Teste" << endl;
                     cout << "6 - Sair" << endl;
-                    cin >> opcaoTeste;
 
-                    string nomeStr, codigoStr, classeStr;
-                    Codigo codigoObj;
-                    Texto nomeObj;
-                    Classe classeObj;
-                    Teste testeObj;
+                    int opcaoTeste;
+                    cin >> opcaoTeste;
                     switch(opcaoTeste) {
                         case 1:
                             system("cls || clear");
@@ -88,7 +88,7 @@ void CntrATeste::executar(Matricula *matricula) {
                                 testeObj.setClasse(classeObj);
                             } catch(const invalid_argument& e) {
                                 system("cls || clear");
-                                cout << "Dado em formato incorreto." << endl;
+                                cout << e.what() << endl;
                                 cout << endl << "Pressione Enter para continuar" << endl;
                                 cin.get();
                                 cin.ignore();
@@ -119,7 +119,7 @@ void CntrATeste::executar(Matricula *matricula) {
                                 testeObj.setCodigo(codigoObj);
                             } catch(const invalid_argument& e) {
                                 system("cls || clear");
-                                cout << "Dado em formato incorreto." << endl;
+                                cout << e.what() << endl;
                                 cout << endl << "Pressione Enter para continuar" << endl;
                                 cin.get();
                                 cin.ignore();
@@ -143,7 +143,7 @@ void CntrATeste::executar(Matricula *matricula) {
                                         testeObj.setNome(nomeObj);
                                     } catch(const invalid_argument& e) {
                                         system("cls || clear");
-                                        cout << "Dado em formato incorreto." << endl;
+                                        cout << e.what() << endl;
                                         cout << endl << "Pressione Enter para continuar" << endl;
                                         cin.get();
                                         cin.ignore();
@@ -172,8 +172,8 @@ void CntrATeste::executar(Matricula *matricula) {
                                         testeObj.setClasse(classeObj);
                                     } catch(const invalid_argument& e) {
                                         system("cls || clear");
-                                        cout << endl << "Dado em formato incorreto." << endl;
-                                        cout << "Pressione Enter para continuar" << endl;
+                                        cout << e.what() << endl;
+                                        cout << endl << "Pressione Enter para continuar" << endl;
                                         cin.get();
                                         cin.ignore();
                                         break;
@@ -202,17 +202,22 @@ void CntrATeste::executar(Matricula *matricula) {
                             }
 
                         case 5:
+                            system("cls || clear");
                             cout << "Digite o código do teste: ";
                             cin >> codigoStr;
 
                             try {
                                 codigoObj.setValor(codigoStr);
                             } catch(const invalid_argument& e) {
+                                system("cls || clear");
                                 cout << e.what() << endl;
-                                cin;
+                                cout << endl << "Pressione Enter para continuar" << endl;
+                                cin.get();
+                                cin.ignore();
                                 break;
                             };
 
+                            system("cls !! clear");
                             if(cntrSTeste->descadastrarTeste(codigoObj)) {
                                 cout << "Teste descadastrado com sucesso" << endl;
                                 cin;
@@ -220,11 +225,18 @@ void CntrATeste::executar(Matricula *matricula) {
                                 cout << "Não foi possível descadastrar teste" << endl;
                                 cin;
                             }
+                            cout << endl << "Pressione Enter para continuar" << endl;
+                            cin.get();
+                            cin.ignore();
+                            break;
                         case 6:
                             return;
                         default:
+                            system("cls || clear");
                             cout << "Opção inválida" << endl;
-                            cin;
+                            cout << endl << "Pressione Enter para continuar" << endl;
+                            cin.get();
+                            cin.ignore();
                             break;   
                     }
                 };

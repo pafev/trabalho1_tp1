@@ -20,10 +20,10 @@ bool CntrAAutenticacao::autenticar(Matricula *matricula) {
         try {
             matriculaObj.setValor(matriculaStr);
             senhaObj.setValor(senhaStr);
-        } catch (const invalid_argument &exp) {
+        } catch (const invalid_argument &e) {
             system("cls || clear");
-            cout << "Dado em formato incorreto." << endl;
-            cout << "Pressione Enter para retornar" << endl;
+            cout << e.what() << endl;
+            cout << endl << "Pressione Enter para retornar" << endl;
             cin.get();
             cin.ignore();
             return false;

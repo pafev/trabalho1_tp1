@@ -55,9 +55,9 @@ void CntrADesenvolvedor::executar(Matricula *matricula){
                         desenvolvedorObj.setMatricula(*matricula);
                         desenvolvedorObj.setNome(nomeObj);
                     }
-                    catch (const invalid_argument &exp) {
+                    catch (const invalid_argument &e) {
                         system("cls || clear");
-                        cout << "Dado em formato incorreto." << endl;
+                        cout << e.what() << endl;
                         cout << endl << "Pressione Enter para continuar" << endl;
                         cin.get();
                         cin.ignore();
@@ -88,10 +88,10 @@ void CntrADesenvolvedor::executar(Matricula *matricula){
                         desenvolvedorObj.setMatricula(*matricula);
                         desenvolvedorObj.setSenha(senhaObj);
                     }
-                    catch (const invalid_argument &exp) {
+                    catch (const invalid_argument &e) {
                         system("cls || clear");
-                        cout << endl << "Dado em formato incorreto." << endl;
-                        cout << "Pressione Enter para continuar" << endl;
+                        cout << e.what() << endl;
+                        cout << endl << "Pressione Enter para continuar" << endl;
                         cin.get();
                         cin.ignore();
                         break;
@@ -120,10 +120,10 @@ void CntrADesenvolvedor::executar(Matricula *matricula){
                         desenvolvedorObj.setMatricula(*matricula);
                         desenvolvedorObj.setTelefone(telefoneObj);
                     }
-                    catch (const invalid_argument &exp) {
+                    catch (const invalid_argument &e) {
                         system("cls || clear");
-                        cout << endl << "Dado em formato incorreto." << endl;
-                        cout << "Pressione Enter para continuar" << endl;
+                        cout << e.what() << endl;
+                        cout << endl << "Pressione Enter para continuar" << endl;
                         cin.get();
                         cin.ignore();
                         break;
@@ -211,26 +211,28 @@ void CntrADesenvolvedor::cadastrar() {
             senhaObj.setValor(senhaStr);
             desenvolvedorObj.setMatricula(matriculaObj);
             desenvolvedorObj.setSenha(senhaObj);
-    
-            if(cntrSDesenvolvedor->cadastrar(desenvolvedorObj)){
-                cout << endl << "Desenvolvedor cadastrado com sucesso" << endl;
-                cout << "Pressione qualquer tecla para continuar" << endl;
-                char entrada;
-                cin >> entrada;
-                return;
-            } else {
-                cout << endl << "Erro ao cadastrar desenvolvedor" << endl;
-                cout << "Pressione qualquer tecla para continuar ou 1 para sair" << endl;
-                char entrada;
-                cin >> entrada;
-                if (entrada != '1') return;
-            }
         }
-        catch (const invalid_argument &exp) {
-            cout << endl << "Dado em formato incorreto." << endl;
-            cout << "Pressione qualquer tecla para continuar" << endl;
-            char entrada;
-            cin >> entrada;
+        catch (const invalid_argument &e) {
+            system("cls || clear");
+            cout << e.what() << endl;
+            cout << endl << "Pressione Enter para retornar" << endl;
+            cin.get();
+            cin.ignore();
+            return;
+        }
+
+        if(cntrSDesenvolvedor->cadastrar(desenvolvedorObj)){
+            cout << "Desenvolvedor cadastrado com sucesso" << endl;
+            cout << endl << "Pressione Enter para retornar" << endl;
+            cin.get();
+            cin.ignore();
+            return;
+        } else {
+            cout << "Erro ao cadastrar desenvolvedor" << endl;
+            cout << endl << "Pressione Enter para retornar e tente novamente" << endl;
+            cin.get();
+            cin.ignore();
+            return;
         }
 
     }
