@@ -16,8 +16,8 @@ public:
     void setCntrSTeste(ISTeste*);
 };
 
-inline void CntrATeste::setCntrSTeste(ISTeste *cntr) {
-    cntrSTeste = cntr;
+inline void CntrATeste::setCntrSTeste(ISTeste *cntrSTeste) {
+    this->cntrSTeste = cntrSTeste;
 };
 
 #endif
