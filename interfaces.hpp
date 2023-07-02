@@ -35,7 +35,7 @@ public:
 class IADesenvolvedor {
 public:
     virtual void executar(Matricula*) = 0;
-    virtual void cadastrar() = 0;
+    virtual void executar() = 0;
     virtual void setCntrSDesenvolvedor(ISDesenvolvedor*) = 0;
     virtual ~IADesenvolvedor(){}
 };
@@ -58,7 +58,7 @@ public:
     virtual bool cadastrar(const Desenvolvedor&) = 0;
     virtual bool descadastrar(const Matricula&) = 0;
     virtual bool visualizar(const Matricula&, Desenvolvedor*) = 0;
-    virtual bool editar(Desenvolvedor) = 0;
+    virtual bool editar(const Desenvolvedor&) = 0;
     virtual ~ISDesenvolvedor(){}
 };
 
@@ -68,13 +68,13 @@ public:
     virtual bool descadastrarTeste(const Codigo&) = 0;
     virtual bool visualizarTeste(const Codigo&, Teste*) = 0;
     virtual bool visualizarTestes(const Matricula&, list<Teste>*) = 0;
-    virtual bool editarTeste(Teste) = 0;
+    virtual bool editarTeste(const Teste&) = 0;
 
     virtual bool cadastrarCasoDeTeste(const CasoDeTeste&, const Codigo&) = 0;
     virtual bool descadastrarCasoDeTeste(const Codigo&) = 0;
     virtual bool visualizarCasoDeTeste(const Codigo&, CasoDeTeste*) = 0;
     virtual bool visualizarCasosDeTeste(const Codigo&, list<CasoDeTeste>*) = 0;
-    virtual bool editarCasoDeTeste(CasoDeTeste) = 0;
+    virtual bool editarCasoDeTeste(const CasoDeTeste&) = 0;
 
     virtual ~ISTeste(){}
 };

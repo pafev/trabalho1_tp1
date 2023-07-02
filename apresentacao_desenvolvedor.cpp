@@ -1,4 +1,4 @@
-#include "modulo_apresentacao_desenvolvedor.hpp"
+#include "apresentacao_desenvolvedor.hpp"
 
 #include <iostream>
 using namespace std;
@@ -192,7 +192,7 @@ void CntrADesenvolvedor::executar(Matricula *matricula){
     }
 }
 
-void CntrADesenvolvedor::cadastrar() {
+void CntrADesenvolvedor::executar() {
     string matriculaStr, senhaStr, nomeStr, telefoneStr;
     Matricula matriculaObj;
     Senha senhaObj;
@@ -203,9 +203,9 @@ void CntrADesenvolvedor::cadastrar() {
     while(true) { 
         system("clear || cls");
         cout << "Cadastro de Desenvolvedor" << endl;
-        cout << "Digite sua matrícula: ";
+        cout << "Digite uma matrícula: ";
         cin >> matriculaStr;
-        cout << "Digite sua senha: ";
+        cout << "Digite uma senha: ";
         cin >> senhaStr;
         cout << "Digite um nome: ";
         cin >> nomeStr;

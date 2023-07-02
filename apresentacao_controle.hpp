@@ -1,8 +1,6 @@
 #ifndef MODULO_APRESENTACAO_CONTROLE_HPP_INCLUDED
 #define MODULO_APRESENTACAO_CONTROLE_HPP_INCLUDED
 
-#include "dominios.hpp"
-#include "entidades.hpp"
 #include "interfaces.hpp"
 
 using namespace std;

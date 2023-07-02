@@ -1,4 +1,4 @@
-#include "modulo_servico_autenticacao.hpp"
+#include "servicos_autenticacao.hpp"
 
 bool CntrSAutenticacao::autenticar(const Matricula &matricula, const Senha &senha) {
     ContainerDesenvolvedor *containerDesenvolvedor;

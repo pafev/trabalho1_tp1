@@ -8,7 +8,7 @@ private:
     ISDesenvolvedor *cntrSDesenvolvedor;
 public:
     void executar(Matricula*);
-    void cadastrar();
+    void executar();
     void setCntrSDesenvolvedor(ISDesenvolvedor*);
 };
 

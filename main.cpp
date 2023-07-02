@@ -1,10 +1,10 @@
-#include "modulo_apresentacao_controle.hpp"
-#include "modulo_apresentacao_autenticacao.hpp"
-#include "modulo_apresentacao_desenvolvedor.hpp"
-#include "modulo_apresentacao_teste.hpp"
-#include "modulo_servico_desenvolvedor.hpp"
-#include "modulo_servico_autenticacao.hpp"
-#include "stubs_sevicos.hpp"
+#include "apresentacao_controle.hpp"
+#include "apresentacao_autenticacao.hpp"
+#include "apresentacao_desenvolvedor.hpp"
+#include "apresentacao_teste.hpp"
+#include "servicos_desenvolvedor.hpp"
+#include "servicos_autenticacao.hpp"
+#include "servicos_teste.hpp"
 
 #include <iostream>
 using namespace std;

@@ -11,7 +11,7 @@ public:
     bool cadastrar(const Desenvolvedor&);
     bool descadastrar(const Matricula&);
     bool visualizar(const Matricula&, Desenvolvedor*);
-    bool editar(Desenvolvedor);
+    bool editar(const Desenvolvedor&);
 };
 
 class ContainerDesenvolvedor {
@@ -21,10 +21,10 @@ private:
     ContainerDesenvolvedor() {};
 public:
     static ContainerDesenvolvedor *getInstancia();
-    bool inserir(Desenvolvedor);
-    bool remover(Matricula);
+    bool inserir(const Desenvolvedor&);
+    bool remover(const Matricula&);
     bool consultar(const Matricula&, Desenvolvedor*);
-    bool atualizar(Desenvolvedor);
+    bool atualizar(const Desenvolvedor&);
 };
 
 #endif

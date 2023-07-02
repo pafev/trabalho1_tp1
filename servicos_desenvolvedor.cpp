@@ -1,4 +1,4 @@
-#include "modulo_servico_desenvolvedor.hpp"
+#include "servicos_desenvolvedor.hpp"
 
 #include <iostream>
 
@@ -28,7 +28,7 @@ bool CntrSDesenvolvedor::descadastrar(const Matricula &matricula) {
     return containerDesenvolvedor->remover(matricula);
 }
 
-bool CntrSDesenvolvedor::editar(Desenvolvedor desenvolvedor) {
+bool CntrSDesenvolvedor::editar(const Desenvolvedor &desenvolvedor) {
     ContainerDesenvolvedor *containerDesenvolvedor;
     containerDesenvolvedor = ContainerDesenvolvedor::getInstancia();
     Desenvolvedor desenvolvedorCadastrado;
@@ -57,11 +57,11 @@ ContainerDesenvolvedor* ContainerDesenvolvedor::getInstancia() {
     return instancia;
 }
 
-bool ContainerDesenvolvedor::inserir(Desenvolvedor desenvolvedor) {
+bool ContainerDesenvolvedor::inserir(const Desenvolvedor &desenvolvedor) {
     return container.insert(pair<string, Desenvolvedor>(desenvolvedor.getMatricula().getValor(), desenvolvedor)).second;
 }
 
-bool ContainerDesenvolvedor::remover(Matricula matricula) {
+bool ContainerDesenvolvedor::remover(const Matricula &matricula) {
     return container.erase(matricula.getValor());
 }
 
@@ -75,12 +75,12 @@ bool ContainerDesenvolvedor::consultar(const Matricula &matricula, Desenvolvedor
     return true;
 }
 
-bool ContainerDesenvolvedor::atualizar(Desenvolvedor desenvolvedor) {
+bool ContainerDesenvolvedor::atualizar(const Desenvolvedor &desenvolvedor) {
     map<string, Desenvolvedor>::iterator it = container.find(desenvolvedor.getMatricula().getValor());
 
     if(it == container.end()) return false;
 
-    it-> second = desenvolvedor;
+    it->second = desenvolvedor;
 
     return true;
 }

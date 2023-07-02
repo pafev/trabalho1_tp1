@@ -1,4 +1,4 @@
-#include "modulo_apresentacao_teste.hpp"
+#include "apresentacao_teste.hpp"
 
 #include <iostream>
 #include <string>
@@ -183,13 +183,13 @@ void CntrATeste::executar(Matricula *matricula) {
                                     if(cntrSTeste->editarTeste(testeObj)) {
                                         system("cls || clear");
                                         cout << "Classe alterada com sucesso" << endl;
-                                        cout << "Pressione Enter para continuar" << endl;
+                                        cout << endl << "Pressione Enter para continuar" << endl;
                                         cin.get();
                                         cin.ignore();
                                     } else {
                                         system("cls || clear");
                                         cout << "Erro ao alterar classe" << endl;
-                                        cout << "Pressione Enter para continuar" << endl;
+                                        cout << endl << "Pressione Enter para continuar" << endl;
                                         cin.get();
                                         cin.ignore();
                                     };
@@ -197,8 +197,11 @@ void CntrATeste::executar(Matricula *matricula) {
                                 case '3':
                                     break;
                                 default:
+                                    system("cls || clear");
                                     cout << "Opção inválida" << endl;
-                                    cin;
+                                    cout << endl << "Pressione Enter para continuar" << endl;
+                                    cin.get();
+                                    cin.ignore();
                                     break;
                             }
                             break;
@@ -221,10 +224,8 @@ void CntrATeste::executar(Matricula *matricula) {
                             system("cls || clear");
                             if(cntrSTeste->descadastrarTeste(codigoObj)) {
                                 cout << "Teste descadastrado com sucesso" << endl;
-                                cin;
                             } else {
                                 cout << "Não foi possível descadastrar teste" << endl;
-                                cin;
                             }
                             cout << endl << "Pressione Enter para continuar" << endl;
                             cin.get();
@@ -238,7 +239,7 @@ void CntrATeste::executar(Matricula *matricula) {
                             cout << endl << "Pressione Enter para continuar" << endl;
                             cin.get();
                             cin.ignore();
-                            break;   
+                            break;
                     }
                 };
                 break;
@@ -590,7 +591,7 @@ void CntrATeste::executar(Matricula *matricula) {
                             cout << endl << "Pressione Enter para continuar" << endl;
                             cin.get();
                             cin.ignore();
-                            break;   
+                            break;
                     }
                 };
                 break;

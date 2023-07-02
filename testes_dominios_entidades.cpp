@@ -1,4 +1,4 @@
-#include "testes.hpp"
+#include "testes_dominios_entidades.hpp"
 
 
 // Testes de Domínios

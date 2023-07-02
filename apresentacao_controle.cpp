@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "modulo_apresentacao_controle.hpp"
+#include "apresentacao_controle.hpp"
 
 using namespace std;
 
@@ -10,8 +10,8 @@ void CntrAControle::executar() {
 
         cout << "Sistema de suporte ao gerenciamento de Testes" << endl;
         cout << "Selecione uma das seguintes opções:" << endl;
-        cout << "1 - Autenticar" << endl;
-        cout << "2 - Cadastrar desenvolvedor" << endl;
+        cout << "1 - Já tenho conta de desenvolvedor" << endl;
+        cout << "2 - Não tenho conta de desenvolvedor" << endl;
         cout << "3 - Fechar programa" << endl;
 
         char opcao;
@@ -23,7 +23,7 @@ void CntrAControle::executar() {
                 };
                 break;
             case '2':
-                cntrADesenvolvedor->cadastrar();
+                cntrADesenvolvedor->executar();
                 break;
             case '3':
                 return;

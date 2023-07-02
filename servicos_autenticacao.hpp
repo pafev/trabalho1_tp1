@@ -2,7 +2,7 @@
 #define MODULO_SERVICO_AUTENTICACAO_HPP_INCLUDED
 
 #include "interfaces.hpp"
-#include "modulo_servico_desenvolvedor.hpp"
+#include "servicos_desenvolvedor.hpp"
 
 #include <string>
 #include <map>
