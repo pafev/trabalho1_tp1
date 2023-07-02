@@ -42,13 +42,13 @@ bool StubSTeste::visualizarCasoDeTeste(const Codigo &codigo, CasoDeTeste *casoDe
     nomeObj.setValor("NomeDeCasoTeste");
     casoDeTeste->setNome(nomeObj);
     Data dataObj;
-    dataObj.setValor("01/07/2023");
+    dataObj.setValor("01/JUL/2023");
     casoDeTeste->setData(dataObj);
     Texto acaoObj;
-    acaoObj.setValor("descricao de uma acao");
+    acaoObj.setValor("isto e uma acao");
     casoDeTeste->setAcao(acaoObj);
     Texto respostaObj;
-    respostaObj.setValor("descricao de resposta");
+    respostaObj.setValor("isto e a resposta");
     casoDeTeste->setResposta(respostaObj);
     Resultado resultadoObj;
     resultadoObj.setValor("REPROVADO");
