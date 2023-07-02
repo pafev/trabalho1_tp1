@@ -34,7 +34,7 @@ bool CntrAAutenticacao::autenticar(Matricula *matricula) {
             return true;
         } else {
             system("cls || clear");
-            cout << "Email ou senha incorretos" << endl;
+            cout << "Não foi possível autenticar" << endl;
             cout << "Pressione Enter para retornar" << endl;
             cin.get();
             cin.ignore();

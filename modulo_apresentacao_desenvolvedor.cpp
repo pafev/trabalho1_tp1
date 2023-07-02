@@ -193,24 +193,34 @@ void CntrADesenvolvedor::executar(Matricula *matricula){
 }
 
 void CntrADesenvolvedor::cadastrar() {
-    string matriculaStr, senhaStr;
+    string matriculaStr, senhaStr, nomeStr, telefoneStr;
     Matricula matriculaObj;
     Senha senhaObj;
+    Texto nomeObj;
+    Telefone telefoneObj;
     Desenvolvedor desenvolvedorObj;
 
     while(true) { 
         system("clear || cls");
         cout << "Cadastro de Desenvolvedor" << endl;
-        cout << "Digite sua matrícula: " << endl;
+        cout << "Digite sua matrícula: ";
         cin >> matriculaStr;
-        cout << "Digite sua senha " << endl;
+        cout << "Digite sua senha: ";
         cin >> senhaStr;
+        cout << "Digite um nome: ";
+        cin >> nomeStr;
+        cout << "Digite seu telefone: ";
+        cin >> telefoneStr;
 
         try {
             matriculaObj.setValor(matriculaStr);
             senhaObj.setValor(senhaStr);
+            nomeObj.setValor(nomeStr);
+            telefoneObj.setValor(telefoneStr);
             desenvolvedorObj.setMatricula(matriculaObj);
             desenvolvedorObj.setSenha(senhaObj);
+            desenvolvedorObj.setNome(nomeObj);
+            desenvolvedorObj.setTelefone(telefoneObj);
         }
         catch (const invalid_argument &e) {
             system("cls || clear");
@@ -221,19 +231,16 @@ void CntrADesenvolvedor::cadastrar() {
             return;
         }
 
+        system("cls || clear");
         if(cntrSDesenvolvedor->cadastrar(desenvolvedorObj)){
             cout << "Desenvolvedor cadastrado com sucesso" << endl;
-            cout << endl << "Pressione Enter para retornar" << endl;
-            cin.get();
-            cin.ignore();
-            return;
         } else {
             cout << "Erro ao cadastrar desenvolvedor" << endl;
-            cout << endl << "Pressione Enter para retornar e tente novamente" << endl;
-            cin.get();
-            cin.ignore();
-            return;
         }
+        cout << endl << "Pressione Enter para retornar" << endl;
+        cin.get();
+        cin.ignore();
+        return;
 
     }
 }
