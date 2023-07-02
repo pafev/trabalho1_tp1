@@ -49,31 +49,31 @@ public:
 
 class ISAutenticacao {
 public:
-    virtual bool autenticar(Matricula, Senha) = 0;
+    virtual bool autenticar(const Matricula&, const Senha&) = 0;
     virtual ~ISAutenticacao(){}
 }; 
 
 class ISDesenvolvedor {
 public:
-    virtual bool cadastrar(Desenvolvedor) = 0;
-    virtual bool descadastrar(Matricula) = 0;
-    virtual bool visualizar(Matricula, Desenvolvedor*) = 0;
+    virtual bool cadastrar(const Desenvolvedor&) = 0;
+    virtual bool descadastrar(const Matricula&) = 0;
+    virtual bool visualizar(const Matricula&, Desenvolvedor*) = 0;
     virtual bool editar(Desenvolvedor) = 0;
     virtual ~ISDesenvolvedor(){}
 };
 
 class ISTeste {
 public:
-    virtual bool cadastrarTeste(Teste, Matricula) = 0;
-    virtual bool descadastrarTeste(Codigo) = 0;
-    virtual bool visualizarTeste(Codigo, Teste*) = 0;
-    virtual bool visualizarTestes(Matricula, list<Teste>*) = 0;
+    virtual bool cadastrarTeste(const Teste&, const Matricula&) = 0;
+    virtual bool descadastrarTeste(const Codigo&) = 0;
+    virtual bool visualizarTeste(const Codigo&, Teste*) = 0;
+    virtual bool visualizarTestes(const Matricula&, list<Teste>*) = 0;
     virtual bool editarTeste(Teste) = 0;
 
-    virtual bool cadastrarCasoDeTeste(CasoDeTeste, Codigo) = 0;
-    virtual bool descadastrarCasoDeTeste(Codigo) = 0;
-    virtual bool visualizarCasoDeTeste(Codigo, CasoDeTeste*) = 0;
-    virtual bool visualizarCasosDeTeste(Codigo, list<CasoDeTeste>*) = 0;
+    virtual bool cadastrarCasoDeTeste(const CasoDeTeste&, const Codigo&) = 0;
+    virtual bool descadastrarCasoDeTeste(const Codigo&) = 0;
+    virtual bool visualizarCasoDeTeste(const Codigo&, CasoDeTeste*) = 0;
+    virtual bool visualizarCasosDeTeste(const Codigo&, list<CasoDeTeste>*) = 0;
     virtual bool editarCasoDeTeste(CasoDeTeste) = 0;
 
     virtual ~ISTeste(){}

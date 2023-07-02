@@ -2,14 +2,14 @@
 
 #include <string>
 
-bool StubSAutenticacao::autenticar(Matricula matricula, Senha senha) {
+bool StubSAutenticacao::autenticar(const Matricula &matricula, const Senha &senha) {
     if(matricula.getValor() == "2615334" && senha.getValor() == "123@ab") {
         return true;
     }
     return false;
 }
 
-bool StubSDesenvolvedor::visualizar(Matricula matricula, Desenvolvedor *desenvolvedor) {
+bool StubSDesenvolvedor::visualizar(const Matricula &matricula, Desenvolvedor *desenvolvedor) {
     desenvolvedor->setMatricula(matricula);
     Texto nomeObj;
     nomeObj.setValor("NomeDeDesenvolvedor");
@@ -24,7 +24,7 @@ bool StubSDesenvolvedor::visualizar(Matricula matricula, Desenvolvedor *desenvol
     return true;
 }
 
-bool StubSTeste::visualizarTeste(Codigo codigo, Teste *teste) {
+bool StubSTeste::visualizarTeste(const Codigo &codigo, Teste *teste) {
     teste->setCodigo(codigo);
     Texto nomeObj;
     nomeObj.setValor("NomeDeTeste");
@@ -36,7 +36,7 @@ bool StubSTeste::visualizarTeste(Codigo codigo, Teste *teste) {
     return true;
 }
 
-bool StubSTeste::visualizarCasoDeTeste(Codigo codigo, CasoDeTeste *casoDeTeste) {
+bool StubSTeste::visualizarCasoDeTeste(const Codigo &codigo, CasoDeTeste *casoDeTeste) {
     casoDeTeste->setCodigo(codigo);
     Texto nomeObj;
     nomeObj.setValor("NomeDeCasoTeste");
